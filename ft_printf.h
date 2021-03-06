@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 16:39:07 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 21:13:44 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 char	*ft_star_value(char *str, va_list args);
 char	*ft_get_content(char *flags, char *convert, va_list args);
 char	*ft_get_int(char *flags, va_list args);
+char    *ft_get_str(char *flags, va_list args); /* RETURN A CHAR * VALUE OF VA_ARG */
 /*
 **SIZE_T FUNCTIONS
 */

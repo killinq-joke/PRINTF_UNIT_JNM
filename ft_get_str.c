@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_content.c                                   :+:      :+:    :+:   */
+/*   ft_get_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 21:13:54 by trofidal         ###   ########.fr       */
+/*   Created: 2021/03/06 21:13:14 by trofidal          #+#    #+#             */
+/*   Updated: 2021/03/06 21:13:28 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *ft_get_content(char *flags, char *convert, va_list args)
+char    *ft_get_str(char *flags, va_list args)
 {
+    char *end;
     int i;
-    char *ret;
-
+    int y;
+    char *value;
+    char *va_arg;
+    
+    y = 0;
     i = 0;
-    if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
-        ret = ft_get_int(flags, args);
-    else if (ft_strcmp(convert, "%s") == 0)
-        ret = ft_get_str(flags, args);
-    /*else if (ft_strcmp(convert, "%c") == 0)
-        ret = ft_get_*/
-    return (ret);
+    if (ft_strlen(flags) == 0)
+    {
+        va_arg = va_arg(args, char *);
+        if (!(end = ft_calloc(sizeof(end), ft_strlen(va_arg) + 1)))
+            return (NULL);
+        ft_strcpy(end, va_arg);
+        return (end);
+    }
+    return (NULL);
 }
