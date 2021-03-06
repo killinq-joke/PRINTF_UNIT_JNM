@@ -17,7 +17,7 @@ static char		*ft_get_convert(char *str, char *convert)
 	int i;
 
 	i = 1;
-	if (!(convert = ft_calloc(sizeof(convert), 3)))
+	if (!(convert = ft_calloc(sizeof(convert), 1)))
 		return (NULL);
 	convert[0] = '%';
 	while (str[i])
@@ -31,14 +31,29 @@ static char		*ft_get_convert(char *str, char *convert)
 	}
 	return (convert);
 }
-/*
-static int		ft_increment(char *flags, char *convert)
+
+static char		*ft_get_flags(char *str, char *flags)
 {
 	int i;
+	int j;
+	int len;
 
-	i = ft_strlen(flags) + ft_strlen(convert);
-	return (i);
-}*/
+	len = 0;
+	j = 0;
+	i = 0; 
+	while (str[i] == '%')
+		i++; 
+	if (!(flags = ft_calloc(sizeof(flags), 2)))
+		return (NULL);
+	while (ft_is_convert(str[i]) == 0)
+	{
+		flags[j] = str[i];
+		j++;
+		i++;
+	}
+	flags[j] = '\0';
+	return (flags);
+}
 
 void			ft_free_static(char *flags, char *convert, char *content, char *final)
 {/*
@@ -68,20 +83,31 @@ int     ft_printf(const char *str, ...)
     {
         if (str[i] == '%')
         {
-            //flags = ft_get_flags(str + i);
+            flags = ft_get_flags((char *)str + i, flags);
 			convert = ft_get_convert((char *)str + i, convert);
-			//printf("%s\n", flags);
+			printf("%s\n", flags);
+			printf("%s\n", convert);
 		}
-		//free(convert);
+		
 		/*else
 			final[i] = str[i];*/
 		//printf("%d\n", ft_increment(flags, convert));
-		i++;
+		i+= ft_strlen(flags) + ft_strlen(convert);
+		//printf("len %d\n", )
+		if (str[i + 1] != '\0')
+		{
+			free (convert);
+			free (flags);
+		}
+		
+		
+		
     }
+	
     return (i);
 }
 
 int main()
 {
-	ft_printf("%s%s%s", "je suis un str");
+	ft_printf("%1s%58s%12345678s", "je suis un str");
 }
