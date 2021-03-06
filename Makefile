@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/02/18 13:04:24 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/06 13:30:27 by trofidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS=-Wall -Wextra -Werror
 RM=rm -f
 LDFLAGS=-L
 LDLIBS=-lft
-SRC = ft_printf_main.c ft_printf_flags.c
+SRC = ft_printf.c ft_is_convert.c
 
 OBJ = $(SRC:.c=.o)
 INC = ./inc/

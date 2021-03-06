@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/03 08:19:16 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 13:19:28 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct		s_print
 **INT FUNCTIONS
 */
 int     ft_printf(const char *str, ...);
+int     ft_is_convert(char str);
 /*
 **T_LIST
 */
