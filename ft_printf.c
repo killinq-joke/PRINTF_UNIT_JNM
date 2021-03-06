@@ -42,8 +42,10 @@ static char		*ft_get_flags(char *str, char *flags)
 	j = 0;
 	i = 0; 
 	while (str[i] == '%')
-		i++; 
-	if (!(flags = ft_calloc(sizeof(flags), 2)))
+		i++;
+	while (str[i + len])
+		len++;
+	if (!(flags = ft_calloc(sizeof(flags), len++)))
 		return (NULL);
 	while (ft_is_convert(str[i]) == 0)
 	{
@@ -109,5 +111,5 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%1s%58s%12345678s", "je suis un str");
+	ft_printf("%1s%58s%15s", "je suis un str");
 }
