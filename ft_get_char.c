@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_content.c                                   :+:      :+:    :+:   */
+/*   ft_get_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 21:28:29 by trofidal         ###   ########.fr       */
+/*   Created: 2021/03/06 21:17:06 by trofidal          #+#    #+#             */
+/*   Updated: 2021/03/06 21:22:49 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *ft_get_content(char *flags, char *convert, va_list args)
+char    *ft_get_char(char *flags, va_list args)
 {
+    char *end;
     int i;
-    char *ret;
-
+    int y;
+    int va_arg;
+    
+    y = 0;
     i = 0;
-    if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
-        ret = ft_get_int(flags, args);
-    else if (ft_strcmp(convert, "%s") == 0)
-        ret = ft_get_str(flags, args);
-    else if (ft_strcmp(convert, "%c") == 0)
-        ret = ft_get_char(flags, args);
-	else if (ft_strcmp(convert, "%f") == 0)
-		ret = ft_get_float(flags, args);
-    return (ret);
+    if (ft_strlen(flags) == 0)
+    {
+        va_arg = va_arg(args, int);
+        if (!(end = ft_calloc(sizeof(end), 2)))
+            return (NULL);
+        end[0] = va_arg;
+		end[1] = '\0';
+        return (end);
+    }
+    return (NULL);
 }
