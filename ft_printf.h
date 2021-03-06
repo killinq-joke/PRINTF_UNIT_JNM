@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 22:14:34 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 23:38:45 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*ft_get_int(char *flags, va_list args);
 char    *ft_get_str(char *flags, va_list args); /* RETURN A CHAR * VALUE OF VA_ARG */
 char    *ft_get_char(char *flags, va_list args);
 char	*ft_get_float(char *flags, va_list args);
+char	*ft_get_ptr(char *flags, va_list args, int type);
 /*
 **SIZE_T FUNCTIONS
 */

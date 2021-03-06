@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 22:08:03 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 23:47:30 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,7 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("Coucou %f toto %d tata\n", 125.326, 1235454);
+	int a;
+	ft_printf("%X\n", 178781);
+	printf("%#X\n", 178781);
 }

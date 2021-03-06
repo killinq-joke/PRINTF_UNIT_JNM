@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/03/06 21:21:31 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/06 22:41:39 by trofidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC = 	ft_printf.c			\
 		ft_star_value.c		\
 		ft_get_content.c	\
 		ft_get_str.c		\
-		ft_get_char.c
+		ft_get_char.c		\
+		ft_get_float.c		\
+		ft_get_ptr.c
 
 OBJ = $(SRC:.c=.o)
 INC = ./inc/
