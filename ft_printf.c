@@ -6,11 +6,11 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/03 08:21:39 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:43:02 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int     ft_printf(const char *str, ...)
 {
