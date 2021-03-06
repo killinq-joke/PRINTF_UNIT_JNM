@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 13:19:28 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/06 16:39:07 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 # define BUFF_SIZE 32
 
 
-typedef struct		s_print
-{
-	char			*type; 		/* %s %d */
-	char			*flags; 	/* - + # 0 ' ' */
-	void			*content; 	/* les strings, le contenu */
-	struct s_print	*next; 		/* pointeur sur le prochain objet a print */
-}					t_print;
 
 /*
 **VOID FUNCTIONS
@@ -33,7 +26,9 @@ typedef struct		s_print
 /*
 **CHAR FUNCTIONS
 */ 
-
+char	*ft_star_value(char *str, va_list args);
+char	*ft_get_content(char *flags, char *convert, va_list args);
+char	*ft_get_int(char *flags, va_list args);
 /*
 **SIZE_T FUNCTIONS
 */
@@ -43,6 +38,7 @@ typedef struct		s_print
 */
 int     ft_printf(const char *str, ...);
 int     ft_is_convert(char str);
+
 /*
 **T_LIST
 */

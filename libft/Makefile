@@ -86,7 +86,8 @@ SRC =	ft_atoi.c				\
 		ft_recursive_power.c	\
 		ft_strclrnbr.c			\
 		ft_strclrstr.c			\
-		ft_strmap.c				
+		ft_strmap.c				\
+		ft_stradd_char.c
 
 
 BONUS = ft_lstsize.c		\
