@@ -68,25 +68,38 @@ void	ft_free_main(char *temp, char *convert, char *flags, char *content)
 	free (content);
 }
 
-int	ft_percent_management(va_list args, char *str, char *final)
+char	*ft_percent_management(va_list args, char *str, char *final, int *i)
 {
 	static char *flags; /* 5.4 */
 	static char *convert;  /* %s %d */  
     static char *content; /* toto, 18 */
 	char		*temp;
-	int i;
-
-	i = 0;
-	if (!(temp = (char *)ft_calloc(sizeof(temp), 1)))
-		return (0);
+	int j;
+	
+	j = 0;
 	flags = ft_get_flags((char *)str, flags, args);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args);
-	i+= ft_strlen(flags) + ft_strlen(convert);
+	j+= ft_strlen(flags) + ft_strlen(convert);
+	temp = final;
 	final = ft_strjoin(temp, content);
- 
 	ft_free_main(temp, convert, flags, content);
-	return (i);
+	*i += j;
+	return (final);
+}
+
+char	*test(char c, char *final, int *i)
+{
+	char		*temp;
+	char		save_char[2];
+
+	save_char[0] = c;
+	save_char[1] = '\0';
+	temp = final;
+	final = ft_strjoin(temp, save_char);
+	free (temp);
+	*i += 1;
+	return (final);
 }
 
 int     ft_printf(const char *str, ...)
@@ -96,7 +109,7 @@ int     ft_printf(const char *str, ...)
     static char *final = NULL;
 	char		*temp;
 	char		save_char[2];
-    
+	
     i = 0;
     va_start(args, str);
 	if (!(final = (char *)ft_calloc(sizeof(final), 1)))
@@ -104,17 +117,9 @@ int     ft_printf(const char *str, ...)
     while (str[i])
     {
         if (str[i] == '%')
-			i+= ft_percent_management(args, (char *)str + i, final);
-
+			final = ft_percent_management(args, (char *)str + i, final, &i);
 		else
-		{
-			save_char[0] = str[i];
-			save_char[1] = '\0';
-			temp = final;
-			final = ft_strjoin(temp, save_char);
-			free (temp);
-			i++;
-		}
+			final = test(str[i], final, &i); 
     }
 	ft_putstr_fd(final, 1);
 	free (final);
@@ -124,5 +129,5 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("tu doute de nous ???%darar%d hey salut je marche ou pas ???", 12655647, 216599);
+	ft_printf("Coucou %d toto %d tata\n", 145236, 1235454);
 }
