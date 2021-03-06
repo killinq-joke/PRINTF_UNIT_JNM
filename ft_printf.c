@@ -88,7 +88,7 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
 	return (final);
 }
 
-char	*test(char c, char *final, int *i)
+char	*ft_else_management(char c, char *final, int *i)
 {
 	char		*temp;
 	char		save_char[2];
@@ -119,7 +119,7 @@ int     ft_printf(const char *str, ...)
         if (str[i] == '%')
 			final = ft_percent_management(args, (char *)str + i, final, &i);
 		else
-			final = test(str[i], final, &i); 
+			final = ft_else_management(str[i], final, &i); 
     }
 	ft_putstr_fd(final, 1);
 	free (final);
