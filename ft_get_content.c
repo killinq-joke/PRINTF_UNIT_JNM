@@ -12,10 +12,17 @@
 
 #include "ft_printf.h"
 
+void    ft_convert_dispatcher(char *flags, char *convert, va_list args)
+{
+    /*  */
+}
 char    *ft_get_content(char *flags, char *convert, va_list args)
 {
     char *ret;
-
+    char **parsed_flags;
+    
+    if(ft_strlen(flags))
+        parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
         ret = ft_get_int(flags, args);
     else if (ft_strcmp(convert, "%s") == 0)
@@ -29,7 +36,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args)
     else if (ft_strcmp(convert, "%X") == 0)
         ret = ft_get_ptr(flags, args, 0); /* 0 = ABCDEF, 1 = abcdef, 2*/
     else if (ft_strcmp(convert, "%u") == 0)
-        return ("pas fait");
+        ret = ft_get_u(flags, args);
     return (ret);
 }
 

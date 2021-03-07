@@ -30,7 +30,7 @@ static char		*ft_get_convert(char *str, char *convert)
 		i++;
 	}
 	return (convert);
-}
+} 
 
 static char		*ft_get_flags(char *str, char *final_flags, va_list args)
 {
@@ -67,6 +67,7 @@ void	ft_free_main(char *temp, char *convert, char *flags, char *content)
 	free (flags);
 	free (content);
 }
+
 
 char	*ft_percent_management(va_list args, char *str, char *final, int *i)
 {
@@ -107,8 +108,6 @@ int     ft_printf(const char *str, ...)
     int i;
     va_list args;
     static char *final = NULL;
-	char		*temp;
-	char		save_char[2];
 	
     i = 0;
     va_start(args, str);
@@ -129,7 +128,8 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	int a;
-	ft_printf("%X\n", 178781);
-	printf("%#X\n", 178781);
+ 
+	ft_printf("%12.5d\n",178781);
+	//printf("%s\n",ft_flags_parser("-12.5"));
+ 
 }

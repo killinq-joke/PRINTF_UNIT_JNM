@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_int.c                                       :+:      :+:    :+:   */
+/*   ft_get_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/06 16:31:00 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 22:26:20 by trofidal         ###   ########.fr       */
+/*   Created: 2021/03/06 21:17:06 by trofidal          #+#    #+#             */
+/*   Updated: 2021/03/06 22:26:06 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_int(char *flags, va_list args)
+int		ft_point_fetcher(char *flags)
 {
-	char *end;
-	char *itoa;
-	int va_arg; 
+	int i;
 
-	if (ft_strlen(flags) == 0)
+	i = 0;
+	while (flags[i])
 	{
-		va_arg = va_arg(args, int);
-		itoa = ft_itoa((long long int)va_arg);
-		if (!(end = ft_calloc(sizeof(end), ft_strlen(itoa) + 1)))
-			return (NULL);
-		ft_strcpy(end, itoa);
-		free(itoa);
-		return (end);
+		if (flags[i] == '.')
+			return (1);
+		i++;
 	}
+	return (0);
+}
+
+char 	**ft_flags_parser(char *flags)
+{
+	int i;
+	char **all_flags;
+ 
+	if (ft_point_fetcher(flags) == 1)
+		all_flags = ft_split(flags, '.');
 	else
 	{
-        
-
-	}
-	return (NULL);
+		if (!(all_flags = ft_calloc(sizeof(all_flags), 2)))
+			return (NULL);
+		all_flags[0] = ft_strdup(flags);
+		all_flags[1] = 0;
+	} 
+	return (all_flags);
 }
