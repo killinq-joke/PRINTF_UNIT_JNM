@@ -43,6 +43,8 @@ static char    *ft_free_and_zero(char *ptr, char *str)
 unsigned long long int      ft_get_numb(long double nbr)
 {
     unsigned long long int start;
+    
+    nbr += 0.000001;
     if (nbr < 0)
         start = -nbr * 1000000;
     else
