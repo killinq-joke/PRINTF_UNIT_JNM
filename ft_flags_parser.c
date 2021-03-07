@@ -28,7 +28,6 @@ int		ft_point_fetcher(char *flags)
 
 char 	**ft_flags_parser(char *flags)
 {
-	int i;
 	char **all_flags;
  
 	if (ft_point_fetcher(flags) == 1)

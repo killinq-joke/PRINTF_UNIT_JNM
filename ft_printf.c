@@ -128,7 +128,9 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%f\n", 0.000156);
-	printf("%d\n", 002);
-	printf("%Lf\n", ft_atof("1.626"));
+	ft_printf("%15da\n", 15);
+	printf("%15da\n", 15);
+	ft_printf("%-10da\n", 2);
+	printf("%-10da\n", 2);
+	//printf("%Lf\n", ft_atof("1.626"));
 }
