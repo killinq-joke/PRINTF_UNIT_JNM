@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 22:21:06 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 17:22:45 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:07:37 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,9 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 void (*del)(void *));
+/*
+**LONG DOUBLE
+*/
+long double			ft_atof(const char *str);
 
 #endif
