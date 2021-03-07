@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 11:10:43 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/07 20:03:09 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:18:16 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ char    *ft_putnbr_float(long double nbr)
     final[ft_strlen(final)] = '.';
     str = ft_itoa((int)end);
     ptr = str;
-    printf("%s\n", str);
     str = ft_free_and_zero(ptr, str);
     if (nbr < 0)
         ft_get_minus(final);
