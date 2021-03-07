@@ -37,7 +37,7 @@ char	*ft_int_add_space(char *flag, char *itoa)
 		end = ft_strjoin(itoa, temp);
 	}
 	free(temp);
-	free(itoa);
+	free(itoa); 
 	return (end);
 }
 
@@ -50,25 +50,22 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	j = 0;
 	while (parsed_flags[i] != 0)
 		i++;
-	while (j < i - 1)
+	while (j < i)
 	{
 		itoa = ft_int_add_space(parsed_flags[j], itoa);
 		j++;
 	}	
-
 	return(itoa);
 }
 
 char	*ft_get_int(char *flags, va_list args, char **parsed_flags)
 {
-	char *end;
 	char *itoa;
 	int va_arg; 
 
 	va_arg = va_arg(args, int);
 	itoa = ft_itoa((long long int)va_arg);
-	
-	if ((ft_strlen(flags))) 
-		itoa = ft_int_flags(parsed_flags, itoa);
+	if ((ft_strlen(flags)) > 0) 
+		itoa = ft_int_flags(parsed_flags, itoa);	
 	return (itoa);
 }
