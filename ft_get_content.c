@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 23:49:41 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:54:37 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char    *ft_get_content(char *flags, char *convert, va_list args)
         ret = ft_get_ptr(flags, args, 0); /* 0 = ABCDEF, 1 = abcdef, 2*/
     else if (ft_strcmp(convert, "%u") == 0)
         ret = ft_get_u(flags, args);
+    else if (ft_strcmp(convert, "%g") == 0)
+        ret = ft_get_g(flags, args);
     return (ret);
 }
 
