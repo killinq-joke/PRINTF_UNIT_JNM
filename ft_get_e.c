@@ -39,17 +39,18 @@ char	*ft_get_e(double nbr)
 	int 	pow;
 
 	pow = ft_pow_float(nbr);
-	final = ft_putnbr_float(((long double)nbr / pow));
+
+	final = ft_putnbr_float(((long double)nbr / pow) + 0.0000001);
 	return (final);
 }
 
 int main()
 {
 	char *str; 
- 	str  = ft_get_e(0120.02);
+ 	str  = ft_get_e(020.012348);
 	
-	
+	 
  	printf("%s\n", str); 
-	printf("le vrai %e\n", 0120.02);
+	printf("le vrai %e\n", 020.01234);
 	return(0);
 }
