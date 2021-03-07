@@ -24,7 +24,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args)
     if(ft_strlen(flags))
         parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
-        ret = ft_get_int(flags, args);
+        ret = ft_get_int(flags, args, parsed_flags);
     else if (ft_strcmp(convert, "%s") == 0)
         ret = ft_get_str(flags, args);
     else if (ft_strcmp(convert, "%c") == 0)

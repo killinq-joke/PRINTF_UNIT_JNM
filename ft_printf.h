@@ -28,7 +28,7 @@
 */ 
 char	*ft_star_value(char *str, va_list args);
 char	*ft_get_content(char *flags, char *convert, va_list args);
-char	*ft_get_int(char *flags, va_list args);
+char	*ft_get_int(char *flags, va_list args, char **parsed_flags);
 char    *ft_get_str(char *flags, va_list args); /* RETURN A CHAR * VALUE OF VA_ARG */
 char    *ft_get_char(char *flags, va_list args);
 char	*ft_get_float(char *flags, va_list args);
