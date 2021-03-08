@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/07 17:13:34 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 08:44:24 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,8 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%15da\n", 15);
-	printf("%15da\n", 15);
-	ft_printf("%-10da\n", 2);
-	printf("%-10da\n", 2);
-	//printf("%Lf\n", ft_atof("1.626"));
+	ft_printf("%e FAUX\n", 5151.626292);
+	printf("%e VRAI\n", 5151.626292);
+	ft_printf("%e FAUX\n", 51784518754.174581);
+	printf("%e VRAI\n", 51784518754.174581);
 }

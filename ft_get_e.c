@@ -6,13 +6,13 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 01:44:01 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 08:31:27 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 08:43:28 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long int				ft_get_pow(long double nbr)
+static long long int	ft_get_pow(long double nbr)
 {
 	long long int i;
 	long long int count;
@@ -31,7 +31,7 @@ long long int				ft_get_pow(long double nbr)
 	return (result);
 }
 
-static char		*ft_get_last(long long int pow, double nbr)
+static char		*ft_get_last(long long int pow)
 {
 	int i;
 	char *str;
@@ -59,17 +59,30 @@ static char		*ft_get_last(long long int pow, double nbr)
 	return (str);
 }
 
-char			*ft_get_e(double nbr)
+static char			*ft_get_it_done(double nbr)
 {
 	char 	*end;
 	char	*final;
-	char	*ptr;
 	long long int 	pow;
 
 	pow = ft_get_pow(nbr);
-	end = ft_get_last(pow, nbr);
-	final = ft_putnbr_float((nbr / pow) + 0.00000001);
+	end = ft_get_last(pow);
+	final = ft_putnbr_float((nbr / pow) + 0.0000001);
 	final = ft_strcat(final, end);
 	free (end);
 	return (final);
+}
+
+char	*ft_get_e(char *flags, va_list args)
+{
+	char *flt;
+	double va_arg;
+
+	if (ft_strlen(flags) == 0)
+	{
+		va_arg = va_arg(args, double);
+		flt = ft_get_it_done(va_arg);
+		return (flt);
+	}
+	return (NULL);
 }

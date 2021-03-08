@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/07 17:00:15 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 08:38:16 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char    *ft_get_content(char *flags, char *convert, va_list args)
     char **parsed_flags;
  
     parsed_flags = ft_flags_parser(flags);
- 
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
         ret = ft_get_int(flags, args, parsed_flags);
     else if (ft_strcmp(convert, "%s") == 0)
@@ -33,6 +32,8 @@ char    *ft_get_content(char *flags, char *convert, va_list args)
         ret = ft_get_ptr(flags, args, 0); /* 0 = ABCDEF, 1 = abcdef, 2*/
     else if (ft_strcmp(convert, "%u") == 0)
         ret = ft_get_u(flags, args);
+    else if (ft_strcmp(convert, "%e") == 0)
+        ret = ft_get_e(flags, args); 
     int i = 0;
     while (parsed_flags[i] != 0)
     {
