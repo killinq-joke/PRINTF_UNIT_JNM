@@ -95,7 +95,7 @@ static double ft_get_round(double nbr)
 	return (nbr);
 }
 
-static char			*ft_get_it_done(double nbr)
+char			*ft_get_it_done(double nbr)
 {
 	char 	*end;
 	char	*final;

@@ -29,7 +29,6 @@ static char		*ft_get_convert(char *str, char *convert)
 		}
 		i++;
 	}
-	printf("%s convert\n", convert);
 	return (convert);
 } 
 
@@ -115,7 +114,7 @@ int     ft_printf(const char *str, ...)
 		return (0);
     while (str[i])
     {
-        if (str[i] == '%')
+    if (str[i] == '%')
 			final = ft_percent_management(args, (char *)str + i, final, &i);
 		else
 			final = ft_else_management(str[i], final, &i);
@@ -128,11 +127,6 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	// ft_printf("%-50.10da\n", -18);
-	// printf("%-50.10da\n", -18);
-	// ft_printf("%50.10da\n", -18);
-	// printf("%50.10da\n", -18);
-	
-	ft_printf("%50.10d\n", 43);
-	printf("%50.10d\n", 43);
+	ft_printf("%g\n", 12342.13200);
+	printf("%g\n", 12342.13200);
 }

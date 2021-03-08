@@ -30,7 +30,8 @@ SRC = 	ft_printf.c			\
 		ft_get_e.c			\
 		ft_get_n.c			\
 		ft_get_percent.c	\
-		ft_flags_parser.c
+		ft_flags_parser.c \
+		ft_get_g.c
 
 OBJ = $(SRC:.c=.o)
 INC = ./inc/
