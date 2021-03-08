@@ -70,36 +70,40 @@ static char		*ft_get_last(long long int pow, int is_pos)
 	return (str);
 }
 
+static double ft_get_round(double nbr)
+{
+	int count;
+	count = 0;
+	while (nbr < 10000000)
+	{
+		nbr *= 10;
+		count++;
+	}
+	if ((int)nbr % 10 >= 5)
+	{
+		nbr /= 10;
+		nbr += 1;
+	} 
+	while (count > 1)
+	{
+		nbr /= 10;
+		count--;
+	}
+	return (nbr);
+}
+
 static char			*ft_get_it_done(double nbr)
 {
 	char 	*end;
 	char	*final;
 	long long int 	pow; 
 	int is_pos;
-	double x;
-	int count;
 
-	count = 0;
 	is_pos = 0;
 	pow = ft_get_pow(nbr, &is_pos);
 	end = ft_get_last(pow, is_pos);
-	x = nbr; 
-	while (x < 10000000)
-	{
-		x *= 10;
-		count++;
-	}
-	if ((int)x % 10 >= 5)
-	{
-		x /= 10;
-		x += 1;
-	} 
-	while (count > 1)
-	{
-		x /= 10;
-		count--;
-	} 
-	nbr = x;
+
+	nbr = ft_get_round(nbr);
 	if (is_pos == 1)
 		nbr = nbr / pow;
 	else 
