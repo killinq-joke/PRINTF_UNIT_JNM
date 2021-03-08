@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:25:24 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 17:10:11 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 19:39:35 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	end = ft_calloc(sizeof(end), ft_strlen(ptr));
 	ft_strcpy(end, ptr);
 	free (ptr);
-	if (ft_strlen(flags) != 0 || type == 1)
+	if (ft_strchr(flags, '#') != NULL || type == 1)
 		return (end);
 	else
 	{
