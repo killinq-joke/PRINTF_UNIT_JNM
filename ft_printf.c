@@ -32,7 +32,7 @@ static char		*ft_get_convert(char *str, char *convert)
 	return (convert);
 } 
 
-static char		*ft_get_flags(char *str, char *final_flags, va_list args)
+static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **flag_len)
 {
 	int i;
 	int j;
@@ -54,6 +54,7 @@ static char		*ft_get_flags(char *str, char *final_flags, va_list args)
 		j++;
 		i++;
 	}
+	**flag_len += j + 2;
 	flags[j] = '\0';
 	final_flags = ft_star_value(flags, args);
 	free(flags);
@@ -76,18 +77,14 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
     static char *content; /* toto, 18 */
 	char		*temp;
 	int a;
-	int j;
-	
-	j = 0;
+ 
 	a = ft_strlen(final);
-	flags = ft_get_flags((char *)str, flags, args);
+	flags = ft_get_flags((char *)str, flags, args, &i);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
-	j+= ft_strlen(flags) + ft_strlen(convert);
 	temp = final;
 	final = ft_strjoin(temp, content);
 	ft_free_main(temp, convert, flags, content);
-	*i += j;
 	return (final);
 }
 
@@ -95,13 +92,13 @@ char	*ft_else_management(char c, char *final, int *i)
 {
 	char		*temp;
 	char		save_char[2];
-
+	
 	save_char[0] = c;
 	save_char[1] = '\0';
 	temp = final;
 	final = ft_strjoin(temp, save_char);
 	free (temp);
-	*i += 1;
+	*i += 1; 
 	return (final);
 }
 
@@ -120,7 +117,7 @@ int     ft_printf(const char *str, ...)
         if (str[i] == '%')
 			final = ft_percent_management(args, (char *)str + i, final, &i);
 		else
-			final = ft_else_management(str[i], final, &i); 
+			final = ft_else_management(str[i], final, &i);
     }
 	ft_putstr_fd(final, 1);
 	free (final);
@@ -130,6 +127,6 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%e \na", -123.312323);
-	ft_printf("%2.5d \na", -1);
+	ft_printf("%*.5d salut \n",10, -42); 
+    printf("%*.5d salut \n",10, -42); 
 }

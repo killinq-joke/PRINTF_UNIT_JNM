@@ -12,30 +12,39 @@
 
 #include "ft_printf.h"
 
-char	*ft_int_add_space(char *flag, char *itoa, char c)
+char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 {
 	char	*temp;
 	int		space_nbr;
 	int 	total_size;
 	char	*end;
 	int		nbr;
-	
-	nbr = ft_atoi(itoa);
-	space_nbr = ft_atoi(flag); 
-	space_nbr++;
-	
-	if (space_nbr > 0)
-	{
-		 
-		total_size = (space_nbr) - ft_strlen(itoa);
-		printf("total size %d\n", total_size);
-		total_size < 0 ? total_size = 0 : total_size;
+	char	*start;
 
+	nbr = ft_atoi(itoa);
+	space_nbr = ft_atoi(flag);
+	if (space_nbr > 0)
+	{   
+		total_size = (space_nbr) - ft_strlen(itoa); 
+		total_size < 0 ? total_size = 0 : total_size; 
 		temp = ft_calloc(sizeof(temp), total_size + 1);
-		if (nbr < 0)
-			temp = ft_strjoin(temp, "-");
-		temp = ft_memset(temp, c, total_size);
-		end = ft_strjoin(temp, itoa);
+		
+		if (nbr < 0 && i == 1)
+		{ 
+			total_size++;
+			temp = ft_memset(temp, c, total_size);
+			start = ft_calloc(sizeof(start), 2);
+			start[0] = '-';
+			start[1] = '\0';
+			end = ft_strjoin(temp, itoa + 1);
+			start = ft_strjoin(start, end);
+			return (start);
+		}
+		else
+		{
+			temp = ft_memset(temp, c, total_size);
+			end = ft_strjoin(temp, itoa);
+		}	
 	}	
 	else
 	{	
@@ -52,22 +61,20 @@ char	*ft_int_add_space(char *flag, char *itoa, char c)
 
 char	*ft_int_flags(char **parsed_flags, char *itoa)
 {
-	int 	i;
-	int 	j;
+	int 	i; 
 
-	i = 0;
-	j = 0;
+	i = 0; 
 	while (parsed_flags[i] != 0)
 		i++;
 	i--;
 	while (i  >= 0)
 	{	
-		if (i == 1 && j == 0)
-			itoa = ft_int_add_space(parsed_flags[i], itoa, '0');
-
+		if (i == 1)
+			itoa = ft_int_add_space(parsed_flags[i], itoa, '0', i); 
 		else
-			itoa = ft_int_add_space(parsed_flags[i], itoa, ' ');
+			itoa = ft_int_add_space(parsed_flags[i], itoa, ' ', i);
 		i--;
+
 	}	
 	return(itoa);
 }
