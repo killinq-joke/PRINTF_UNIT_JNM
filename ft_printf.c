@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 19:24:25 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 19:28:15 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
  
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
-	printf("%s.FLAGS\n", flags);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
 	temp = final;
@@ -131,5 +130,4 @@ int main()
 {
 	ft_printf("%1651561% toto");
 	printf("\n");
-	//printf("%%");
 }
