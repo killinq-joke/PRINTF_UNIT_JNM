@@ -35,6 +35,7 @@ char	*ft_get_float(char *flags, va_list args);
 char	*ft_get_ptr(char *flags, va_list args, int type);
 char	*ft_get_u(char *flags, va_list args);
 char	*ft_get_e(char *flags, va_list args);
+char	*ft_get_g(char *flags, va_list args);
 char	*ft_get_n(char *flags, va_list args, int a);
 char    *ft_get_percent(char *flags);
 char	**ft_flags_parser(char *flags);

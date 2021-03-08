@@ -40,8 +40,8 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_n(flags, args, a); 
     else if (ft_charcmp(convert[0], '%') == 0)
         ret = ft_get_percent(flags);
-    /*else if (ft_strcmp(convert, "%g") == 0)
-        ret = ft_get_g(flags, args);*/
+    else if (ft_strcmp(convert, "%g") == 0)
+        ret = ft_get_g(flags, args);
     int i = 0;
     while (parsed_flags[i] != 0)
     {
