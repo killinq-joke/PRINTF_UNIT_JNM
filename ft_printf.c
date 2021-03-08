@@ -128,5 +128,11 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%d\n", 18);
+	// ft_printf("%-50.10da\n", -18);
+	// printf("%-50.10da\n", -18);
+	// ft_printf("%50.10da\n", -18);
+	// printf("%50.10da\n", -18);
+	
+	ft_printf("%50.10d\n", 43);
+	printf("%50.10d\n", 43);
 }

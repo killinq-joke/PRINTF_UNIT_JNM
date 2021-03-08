@@ -12,12 +12,14 @@
 
 #include "ft_printf.h"
 
-char	*ft_int_minus(int total_size, int i, char *itoa, int c)
+char	*ft_int_minus(int total_size, int i, char *itoa, int c, int is_neg)
 {
 	char	*temp;
 	char	*start;
 	char	*end;
 	int		nbr;
+	char	*final;
+
 	temp = ft_calloc(sizeof(temp), total_size + 1);
 	nbr = ft_atoi(itoa);
 
@@ -28,13 +30,18 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int c)
 		start = ft_calloc(sizeof(start), 2);
 		start[0] = '-';
 		start[1] = '\0';
-		end = ft_strjoin(temp, itoa + 1);
-		start = ft_strjoin(start, end);
+		end = ft_strjoin(temp, itoa + 1); 
+		final = ft_strjoin(start, end);
+		free(temp);
 		free(end);
-		return (start);
+		free(start);
+		return (final);
 	}
 	temp = ft_memset(temp, c, total_size);
-	end = ft_strjoin(temp, itoa);
+	if (is_neg == 1)
+		end = ft_strjoin(itoa, temp);
+	else
+		end = ft_strjoin(temp, itoa);
 	free(itoa);
 	free(temp);
 	return (end);	
@@ -42,35 +49,26 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int c)
 
 char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 {
-	char	*temp;
+ 
 	int		space_nbr;
 	int 	total_size;
 	char	*end;
-
+	int 	is_neg;
+ 
+	is_neg = 0;
 	space_nbr = ft_atoi(flag);
+	if ( space_nbr < 0)
+		is_neg = 1;
 	space_nbr < 0 ? space_nbr *= -1 : space_nbr;
 	total_size = (space_nbr) - ft_strlen(itoa); 
-	if (space_nbr > 0)
-	{   
-		total_size < 0 ? total_size = 0 : total_size; 
-		end = ft_int_minus(total_size, i, itoa, c);
-		return (end);	
-	}	
-	else
-	{	
-		temp = ft_calloc(sizeof(temp), total_size + 1);
-		temp = ft_memset(temp, c, total_size);
-		end = ft_strjoin(itoa, temp);
-	}
-	free(temp);
-	free(itoa); 
-	return (end);
+   	total_size < 0 ? total_size = 0 : total_size; 
+	end = ft_int_minus(total_size, i, itoa, c, is_neg);
+	return (end);	
 }
 
 char	*ft_int_flags(char **parsed_flags, char *itoa)
 {
-	int 	i; 
-
+	int 	i;
 	i = 0; 
 	while (parsed_flags[i] != 0)
 		i++;
@@ -82,19 +80,24 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 		else
 			itoa = ft_int_add_space(parsed_flags[i], itoa, ' ', i);
 		i--;
-
 	}	
 	return(itoa);
 }
 
 char	*ft_get_int(char *flags, va_list args, char **parsed_flags)
 {
-	char *itoa;
-	int va_arg; 
-
+	char 	*itoa;
+	int 	va_arg; 
+	char	*end;
+	
 	va_arg = va_arg(args, int);
 	itoa = ft_itoa((long long int)va_arg);
 	if ((ft_strlen(flags)) > 0) 
-		itoa = ft_int_flags(parsed_flags, itoa);	
+	{
+		end = ft_int_flags(parsed_flags, itoa);
+		printf("FLAGS %s\n",flags);
+			free(itoa);
+		return (end);
+	}free(itoa);
 	return (itoa);
 }
