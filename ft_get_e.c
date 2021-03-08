@@ -82,21 +82,15 @@ static double ft_get_round(double nbr)
 		is_neg = 1;
 		nbr = -nbr;
 	}
-	while (nbr < 10000000)
-	{
+	while (nbr < 10000000 && ++count)
 		nbr *= 10;
-		count++;
-	}
 	if ((int)nbr % 10 >= 5)
 	{
 		nbr /= 10;
 		nbr += 1;
 	} 
-	while (count > 1)
-	{
+	while (count > 1 && --count)
 		nbr /= 10;
-		count--;
-	}
 	is_neg == 1 ? nbr = -nbr : nbr;
 	return (nbr);
 }
