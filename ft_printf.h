@@ -39,6 +39,7 @@ char	*ft_get_g(char *flags, va_list args);
 char	*ft_get_n(char *flags, va_list args, int a);
 char    *ft_get_percent(char *flags);
 char	**ft_flags_parser(char *flags);
+char			*ft_get_it_done(double nbr);
 
 /*
 **SIZE_T FUNCTIONS
