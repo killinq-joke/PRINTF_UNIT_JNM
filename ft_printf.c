@@ -128,8 +128,8 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%e FAUX\n", -023.4567965323);
-	printf("%e VRAI\n", -023.4567965323);
+	ft_printf("%-10d FAUX\n", -42);
+	printf("%-10d VRAI\n", -42);
 
 	//ft_printf("%e FAUX\n", 51784518754.174581);
 	//printf("%e VRAI\n", 51784518754.174581);
