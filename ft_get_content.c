@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 17:08:45 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 19:16:37 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     char *ret;
     char **parsed_flags;
  
+    printf("%d\n", ft_charcmp(convert[0], '%'));
     parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
         ret = ft_get_int(flags, args, parsed_flags);
@@ -38,6 +39,8 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_e(flags, args); 
     else if (ft_strcmp(convert, "%n") == 0)
         ret = ft_get_n(flags, args, a); 
+    else if (ft_charcmp(convert[0], '%') == 0)
+        ret = ft_get_percent(flags);
     /*else if (ft_strcmp(convert, "%g") == 0)
         ret = ft_get_g(flags, args);*/
     int i = 0;

@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 15:18:57 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 19:24:25 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static char		*ft_get_convert(char *str, char *convert)
 		}
 		i++;
 	}
+	printf("%s convert\n", convert);
 	return (convert);
 } 
 
@@ -42,7 +43,7 @@ static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **fla
 	len = 0;
 	j = 0;
 	i = 0; 
-	while (str[i] == '%')
+	if (str[i] == '%')
 		i++;
 	while (str[i + len])
 		len++;
@@ -80,6 +81,7 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
  
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
+	printf("%s.FLAGS\n", flags);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
 	temp = final;
@@ -127,6 +129,7 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%*.5d salut \n",10, -42); 
-    printf("%*.5d salut \n",10, -42); 
+	ft_printf("%1651561% toto");
+	printf("\n");
+	//printf("%%");
 }
