@@ -73,6 +73,7 @@ static char		*ft_get_last(long long int pow, int is_pos)
 static double ft_get_round(double nbr)
 {
 	int count;
+	
 	count = 0;
 	while (nbr < 10000000)
 	{
