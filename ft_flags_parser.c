@@ -29,15 +29,16 @@ int		ft_point_fetcher(char *flags)
 char 	**ft_flags_parser(char *flags)
 {
 	char **all_flags;
- 
-	if (ft_point_fetcher(flags) == 1)
-		all_flags = ft_split(flags, '.');
-	else
+
+	
+	if (ft_point_fetcher(flags) != 1 || flags[0] == '.')
 	{
 		if (!(all_flags = ft_calloc(sizeof(all_flags), 2)))
 			return (NULL);
 		all_flags[0] = ft_strdup(flags);
 		all_flags[1] = 0;
-	} 
+	}
+	else
+		all_flags = ft_split(flags, '.');
 	return (all_flags);
 }

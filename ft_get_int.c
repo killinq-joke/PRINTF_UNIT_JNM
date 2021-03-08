@@ -42,7 +42,6 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int c, int is_neg)
 		end = ft_strjoin(itoa, temp);
 	else
 		end = ft_strjoin(temp, itoa);
-	free(itoa);
 	free(temp);
 	return (end);	
 }
@@ -63,6 +62,7 @@ char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 	total_size = (space_nbr) - ft_strlen(itoa); 
    	total_size < 0 ? total_size = 0 : total_size; 
 	end = ft_int_minus(total_size, i, itoa, c, is_neg);
+	free(itoa);
 	return (end);	
 }
 
@@ -75,8 +75,13 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	i--;
 	while (i  >= 0)
 	{	
-		if (i == 1)
-			itoa = ft_int_add_space(parsed_flags[i], itoa, '0', i); 
+
+		if (parsed_flags[0][0] == '.' || i == 1)
+		{	
+			if (parsed_flags[0][0] == '.')
+				ft_strcpy(parsed_flags[0], parsed_flags[0] + 1); 
+			itoa = ft_int_add_space(parsed_flags[i], itoa, '0', 1);
+		}
 		else
 			itoa = ft_int_add_space(parsed_flags[i], itoa, ' ', i);
 		i--;
@@ -95,9 +100,7 @@ char	*ft_get_int(char *flags, va_list args, char **parsed_flags)
 	if ((ft_strlen(flags)) > 0) 
 	{
 		end = ft_int_flags(parsed_flags, itoa);
-		printf("FLAGS %s\n",flags);
-			free(itoa);
 		return (end);
-	}free(itoa);
+	}
 	return (itoa);
 }

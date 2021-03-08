@@ -125,8 +125,9 @@ int     ft_printf(const char *str, ...)
     return (i);
 }
 
-int main()
-{
-	ft_printf("%g\n", 12342.13200);
-	printf("%g\n", 12342.13200);
-}
+// int main()
+// {
+// 	ft_printf("%.10da\n", -42);//KO
+
+// 	printf("%.10da\n", -42); 
+// }
