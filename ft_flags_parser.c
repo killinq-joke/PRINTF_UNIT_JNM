@@ -29,8 +29,12 @@ int		ft_point_fetcher(char *flags)
 char 	**ft_flags_parser(char *flags)
 {
 	char **all_flags;
-
 	
+	if (flags[ft_strlen(flags) - 1] == '.')
+	{
+		flags[ft_strlen(flags)] = '0';
+		flags[ft_strlen(flags) + 1]= '\0';
+	}
 	if (ft_point_fetcher(flags) != 1 || flags[0] == '.')
 	{
 		if (!(all_flags = ft_calloc(sizeof(all_flags), 2)))

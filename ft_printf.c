@@ -124,10 +124,3 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
-
-// int main()
-// {
-// 	ft_printf("%.10da\n", -42);//KO
-
-// 	printf("%.10da\n", -42); 
-// }
