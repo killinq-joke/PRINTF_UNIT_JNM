@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 15:03:32 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 17:08:45 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_char(flags, args);
 	else if (ft_strcmp(convert, "%f") == 0)
 		ret = ft_get_float(flags, args);
-    else if (ft_strcmp(convert, "%p") == 0 || ft_strcmp(convert, "%x") == 0)
+    else if (ft_strcmp(convert, "%p") == 0)
         ret = ft_get_ptr(flags, args, 1);
     else if (ft_strcmp(convert, "%X") == 0)
         ret = ft_get_ptr(flags, args, 0);
+    else if (ft_strcmp(convert, "%x") == 0)
+        ret = ft_get_ptr(flags, args, 2);
     else if (ft_strcmp(convert, "%u") == 0)
         ret = ft_get_u(flags, args);
     else if (ft_strcmp(convert, "%e") == 0)
