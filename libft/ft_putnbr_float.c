@@ -44,7 +44,7 @@ long long int      ft_get_numb(double nbr)
 {
     long long int start;
     
-    nbr += 0.000001;
+    //nbr += 0.000001; 
     if (nbr < 0)
         start = -nbr * 1000000;
     else
@@ -74,7 +74,6 @@ char    *ft_putnbr_float(double nbr)
     char *final;
     char *str;
     char *ptr;
-
     start = ft_get_numb(nbr);
     end = start % 1000000;
     start /= 1000000;
@@ -83,7 +82,7 @@ char    *ft_putnbr_float(double nbr)
     final = ft_strcpy(final, str);
     free (str);
     final[ft_strlen(final)] = '.';
-    str = ft_long_itoa(end);
+    str = ft_long_itoa(end); 
     ptr = str;
     str = ft_free_and_zero(ptr, str);
     if (nbr < 0)
