@@ -8,11 +8,8 @@ SPACER="${RED}---===---${NC}"
 read -p "Commentaire pour le commit: " comment
 
 
-printf "${SPACER} ${GREEN}RESULTS${NC} ${SPACER}\n"
+printf "${SPACER} ${GREEN}RESULTS${NC} ${SPACER}\n\n\n"
     git add .
     git commit -m "${comment}"
     git push
-    echo "Git add ${GREEN}OK"
-    echo "Git commit ${GREEN}OK"
-    echo "Git push ${GREEN}OK"
-printf "${SPACER} ${GREEN}END${NC} ${SPACER}\n"
+printf "\n\n${SPACER} ${GREEN}END${NC} ${SPACER}\n"
