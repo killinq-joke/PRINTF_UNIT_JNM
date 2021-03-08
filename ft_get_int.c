@@ -12,44 +12,52 @@
 
 #include "ft_printf.h"
 
+char	*ft_int_minus(int total_size, int i, char *itoa, int c)
+{
+	char	*temp;
+	char	*start;
+	char	*end;
+	int		nbr;
+	temp = ft_calloc(sizeof(temp), total_size + 1);
+	nbr = ft_atoi(itoa);
+
+	if (nbr < 0 && i == 1)
+	{ 
+		total_size++;
+		temp = ft_memset(temp, c, total_size);
+		start = ft_calloc(sizeof(start), 2);
+		start[0] = '-';
+		start[1] = '\0';
+		end = ft_strjoin(temp, itoa + 1);
+		start = ft_strjoin(start, end);
+		free(end);
+		return (start);
+	}
+	temp = ft_memset(temp, c, total_size);
+	end = ft_strjoin(temp, itoa);
+	free(itoa);
+	free(temp);
+	return (end);	
+}
+
 char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 {
 	char	*temp;
 	int		space_nbr;
 	int 	total_size;
 	char	*end;
-	int		nbr;
-	char	*start;
 
-	nbr = ft_atoi(itoa);
 	space_nbr = ft_atoi(flag);
+	space_nbr < 0 ? space_nbr *= -1 : space_nbr;
+	total_size = (space_nbr) - ft_strlen(itoa); 
 	if (space_nbr > 0)
 	{   
-		total_size = (space_nbr) - ft_strlen(itoa); 
 		total_size < 0 ? total_size = 0 : total_size; 
-		temp = ft_calloc(sizeof(temp), total_size + 1);
-		
-		if (nbr < 0 && i == 1)
-		{ 
-			total_size++;
-			temp = ft_memset(temp, c, total_size);
-			start = ft_calloc(sizeof(start), 2);
-			start[0] = '-';
-			start[1] = '\0';
-			end = ft_strjoin(temp, itoa + 1);
-			start = ft_strjoin(start, end);
-			return (start);
-		}
-		else
-		{
-			temp = ft_memset(temp, c, total_size);
-			end = ft_strjoin(temp, itoa);
-		}	
+		end = ft_int_minus(total_size, i, itoa, c);
+		return (end);	
 	}	
 	else
 	{	
-		total_size = (space_nbr * -1) - ft_strlen(itoa);
-		total_size < 0 ? total_size = 0 : total_size;
 		temp = ft_calloc(sizeof(temp), total_size + 1);
 		temp = ft_memset(temp, c, total_size);
 		end = ft_strjoin(itoa, temp);
