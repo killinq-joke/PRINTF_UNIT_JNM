@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 08:44:24 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:02:44 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,14 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
 	static char *convert;  /* %s %d */  
     static char *content; /* toto, 18 */
 	char		*temp;
+	int a;
 	int j;
 	
 	j = 0;
+	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args);
 	convert = ft_get_convert((char *)str, convert);
-	content = ft_get_content(flags, convert, args);
+	content = ft_get_content(flags, convert, args, a);
 	j+= ft_strlen(flags) + ft_strlen(convert);
 	temp = final;
 	final = ft_strjoin(temp, content);
@@ -128,9 +130,9 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%-10d FAUX\n", -42);
-	printf("%-10d VRAI\n", -42);
-
-	//ft_printf("%e FAUX\n", 51784518754.174581);
-	//printf("%e VRAI\n", 51784518754.174581);
+	int a;
+	int b;
+	ft_printf("%n toto\n", &a);
+	printf("coucou %n toto\n", &b);
+	printf("%d ft_printf ||| %d printf\n", a, b);
 }
