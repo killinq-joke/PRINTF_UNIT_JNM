@@ -12,20 +12,29 @@
 
 #include "ft_printf.h"
 
-char	*ft_int_add_space(char *flag, char *itoa)
+char	*ft_int_add_space(char *flag, char *itoa, char c)
 {
 	char	*temp;
 	int		space_nbr;
 	int 	total_size;
 	char	*end;
-
-	space_nbr = ft_atoi(flag);  
+	int		nbr;
+	
+	nbr = ft_atoi(itoa);
+	space_nbr = ft_atoi(flag); 
+	space_nbr++;
+	
 	if (space_nbr > 0)
 	{
+		 
 		total_size = (space_nbr) - ft_strlen(itoa);
+		printf("total size %d\n", total_size);
 		total_size < 0 ? total_size = 0 : total_size;
+
 		temp = ft_calloc(sizeof(temp), total_size + 1);
-		temp = ft_memset(temp, ' ', total_size);
+		if (nbr < 0)
+			temp = ft_strjoin(temp, "-");
+		temp = ft_memset(temp, c, total_size);
 		end = ft_strjoin(temp, itoa);
 	}	
 	else
@@ -33,7 +42,7 @@ char	*ft_int_add_space(char *flag, char *itoa)
 		total_size = (space_nbr * -1) - ft_strlen(itoa);
 		total_size < 0 ? total_size = 0 : total_size;
 		temp = ft_calloc(sizeof(temp), total_size + 1);
-		temp = ft_memset(temp, ' ', total_size);
+		temp = ft_memset(temp, c, total_size);
 		end = ft_strjoin(itoa, temp);
 	}
 	free(temp);
@@ -50,10 +59,15 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	j = 0;
 	while (parsed_flags[i] != 0)
 		i++;
-	while (j < i)
-	{
-		itoa = ft_int_add_space(parsed_flags[j], itoa);
-		j++;
+	i--;
+	while (i  >= 0)
+	{	
+		if (i == 1 && j == 0)
+			itoa = ft_int_add_space(parsed_flags[i], itoa, '0');
+
+		else
+			itoa = ft_int_add_space(parsed_flags[i], itoa, ' ');
+		i--;
 	}	
 	return(itoa);
 }

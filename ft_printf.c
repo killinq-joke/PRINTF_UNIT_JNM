@@ -130,6 +130,6 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	printf(" %p \na", -1);
-	ft_printf(" %p \na", -1);
+	ft_printf("%e \na", -123.312323);
+	ft_printf("%2.5d \na", -1);
 }

@@ -35,7 +35,7 @@ static long long int	ft_get_pow(long double nbr, int *is_pos)
 		count++;
 	}
 	while (--count > 0)
-			result = result * 10;
+			result = result * 10; 
 	return (result);
 }
 
@@ -89,7 +89,7 @@ static double ft_get_round(double nbr)
 		nbr /= 10;
 		nbr += 1;
 	} 
-	while (count > 1 && --count)
+	while (count > 0 && count--) 
 		nbr /= 10;
 	is_neg == 1 ? nbr = -nbr : nbr;
 	return (nbr);
