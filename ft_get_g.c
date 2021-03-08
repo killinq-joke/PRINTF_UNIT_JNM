@@ -32,25 +32,55 @@ static char	*ft_concat_string(double nbr)
 	return (str);
 }
 
+static char	*ft_del_zero_end(char *str)
+{
+	int i;
+	int yes;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == '0')
+		{
+			yes = 0;
+			while(str[i + yes] == '0')
+			{
+				if (str[yes + i + 1] == '\0')
+					str[i] = '\0';
+				yes++;
+			}
+			i+=yes;
+		}
+		i++;
+	}
+	return (str);
+}
+
+static int ft_get_n_len(size_t dup)
+{
+	int len;
+	len = 0;
+		while (dup > 0)
+		{
+			dup /= 10;
+			len++;
+		}
+		return (len);
+}
+
 char	*ft_get_g(char *flags, va_list args)
 {
 	char *flt;
 	double va_arg;
 	int len;
-	double dup;
-	len = 0;
 	if (ft_strlen(flags) == 0)
 	{
 		va_arg = va_arg(args, double);
-		dup = va_arg;
-		while (dup > 1)
-		{
-			dup /= 10;
-			len++;
-		}
+		len = ft_get_n_len(va_arg);
 		if(len <= 6)
 		{
 			flt = ft_putnbr_float(va_arg);
+			flt = ft_del_zero_end(flt);
 			if (len == 6)
 				flt[6] = '\0';
 			flt[7] = '\0';

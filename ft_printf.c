@@ -127,6 +127,6 @@ int     ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("%g\n", 1.1);
-	printf("%g\n", 1.1);
+	ft_printf("%g\n", 12342.13200);
+	printf("%g\n", 12342.13200);
 }
