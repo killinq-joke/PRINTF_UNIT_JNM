@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 13:01:53 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 13:25:12 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 15:39:17 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static int      ft_get_second_value(char *flags) // GET FLAGS SECOND VALUE
         i++;
     }
     a = ft_atoi(second_value);
+    free (second_value);
     return (a);
 }
 
@@ -133,15 +134,12 @@ static char     *ft_is_two_values(char *flags, char *end)
     ft_strcpy(new_flags, ptr);
     end = ft_is_one_value(new_flags, end);
     free (ptr);
+    free (new_flags);
     return (end);
 }
 
 char     *ft_index(char *end, char *flags)
 {
-    //char *ptr;
-
-    //ptr = end;
-    //printf("%d\n", ft_flags_numbers(flags));
     if (ft_flags_numbers(flags) == 0)
         return (end);
     if (ft_flags_numbers(flags) == 1)
