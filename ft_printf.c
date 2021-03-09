@@ -129,9 +129,15 @@ int main()
 {
 	ft_printf("%3.7d\n", -2375);
  	printf("%3.7d\n", -2375);
-	ft_printf("%7.3d\n", -8473);
-	printf("%7.3d\n", -8473);
+	ft_printf("%7.4d\n", -8473);
+	printf("%7.4d\n", -8473);
 
 	ft_printf("{%5.0d}\n",  42);
 	 printf("{%5.0d}\n",  42);
-} 
+	 ft_printf("%04d\n", -532);
+	 printf("%04d\n", -532);
+	 ft_printf("%07d\n", -54);
+	 printf("%07d\n", -54);
+	 ft_printf("%20.5d\n", -1024);
+	 printf("%20.5d\n", -1024);
+}

@@ -19,14 +19,14 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int is_zero, int is_neg)
 	char	*end;
 	int		nbr;
 	char	*final;
-
+	
 	temp = ft_calloc(sizeof(temp), total_size + 1);
 	nbr = ft_atoi(itoa);
 	if (nbr < 0 && i == 1)
 	{   
-		//is_zero == 0 ? total_size++ : total_size;
-		if (is_zero == 0)
-			total_size++; 
+		if (total_size > 0 && is_zero != 1)
+			total_size++;
+ 
 		temp = ft_memset(temp, '0', total_size); 
 		start = ft_calloc(sizeof(start), 2);
 		start[0] = '-';
@@ -50,7 +50,7 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int is_zero, int is_neg)
 	return (end);	
 }
 
-char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
+char	*ft_int_add_space(char *flag, char *itoa, int is_zero, int i)
 {
 	int		space_nbr;
 	int 	total_size;
@@ -63,14 +63,14 @@ char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 	if (space_nbr < 0)
 		is_neg = 1;
 	space_nbr < 0 ? space_nbr *= -1 : space_nbr;
-	total_size = (space_nbr) - ft_strlen(itoa);
+	total_size = (space_nbr) - ft_strlen(itoa); 
    	total_size < 0 ? total_size = 0 : total_size;  
 	if (space_nbr == 0 && ft_strcmp(itoa, "0") == 0)
 	{	
 		strcpy(itoa, "");
 		return (itoa);
 	}
-	end = ft_int_minus(total_size, i, itoa, c, is_neg);
+	end = ft_int_minus(total_size, i, itoa, is_zero, is_neg);
 	free(itoa);
 	return (end);	
 }
@@ -80,6 +80,7 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	int 	i;
 	int is_zero;
 	int count;
+	int j;
 
 	count = 0;
 	is_zero = 0;
@@ -87,13 +88,14 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	while (parsed_flags[i] != 0)
 		i++;
 	i--;
+	j = i;
 	while (i  >= 0)
 	{	
 		if (parsed_flags[0][0] == '.' || i == 1 || (parsed_flags[0][0] == '0' && count == 0))
 		{
 			if (parsed_flags[0][0] == '.')
 				ft_strcpy(parsed_flags[0], parsed_flags[0] + 1);
-			if (parsed_flags[0][0] == '0' && i == 0)
+			if (parsed_flags[0][0] == '0' && j == 0)
 				is_zero = 1;
 			itoa = ft_int_add_space(parsed_flags[i], itoa, is_zero, 1);
 			count++;
