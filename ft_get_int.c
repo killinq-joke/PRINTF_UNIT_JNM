@@ -75,6 +75,7 @@ char	*ft_int_add_space(char *flag, char *itoa, int is_zero, int i)
 		strcpy(itoa, "");
 		return (itoa);
 	}
+	
 	end = ft_int_minus(total_size, i, itoa, is_zero, is_neg);
 	free(itoa);
 	return (end);	

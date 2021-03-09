@@ -27,6 +27,11 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	long long int va_arg;
 	
 	va_arg = va_arg(args, long long int);
+	if ((type == 2 || type == 0) && va_arg == 0)
+	{	
+		ptr = ft_itoa(0);
+		return (ptr);
+	}
 	if (type == 0)
 		ptr = ft_itoa_pointer(va_arg, "0123456789ABCDEF");
 	if (type == 1)

@@ -155,7 +155,8 @@ int main()
 
 	//  ft_printf("%-5.0da\n", 0);
 	//  printf("%-5.0da\n", 0);
-	printf("####XXXXXX#####\n");
-	ft_printf("%-3xa\n", 0);
-	printf("%-3xa\n", 0);
+	 
+	printf("####DDDDDDDDDDD#####\n");
+	ft_printf("%.0x %.0x\n", 0,0);
+	printf("%.0x %.0x\n", 0,0);
 } 
