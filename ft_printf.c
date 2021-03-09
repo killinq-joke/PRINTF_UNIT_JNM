@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 10:37:59 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:05:58 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,80 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
-/*
+
 int main()
 {
-	printf("%5s\n", "goes over");
-	ft_printf("%5s\n", "goes over");
+	printf("%-18sa\n", "goes over");
+	ft_printf("%-18sa\n", "goes over");
+}
+
+/*
+static char     *ft_get_flags_values(char *flags, char *end)
+{
+    char *spaces;
+    char *ptr;
+    int isneg;
+    int totlen;
+    int isalone;
+    int len;
+    int i;
+
+    i = 0;
+    isalone = 0;
+    totlen = 0;
+    isneg = 0;
+    spaces = ft_calloc(sizeof(spaces), 10);
+    if ((flags[0] == '.' || flags[0] == '-') && ft_isalnum(flags[1]) == 0)
+        return (end);
+    spaces = ft_calloc(sizeof(spaces), 10);
+    while (flags[i] != '.' && flags[i] != '\0')
+    {
+        spaces[i] = flags[i];
+        i++;
+    }
+    if (ft_strlen(flags) == ft_strlen(spaces))
+        isalone++;
+    i++;
+    if (flags[i])
+        totlen = ft_atoi(flags + i);
+    len = ft_atoi(spaces);
+    free (spaces);
+    if (len < 0)
+    {
+        len = -len;
+        isneg++;
+    }
+    if (len >= totlen&& isalone == 0)
+    {
+        spaces = ft_calloc(sizeof(spaces), len);
+        if (((int)ft_strlen(end) < totlen) && isneg == 0)
+            ft_memset(spaces, ' ', len - ft_strlen(end));
+        else if (isneg == 1 && len > totlen)
+            return (end);
+        else
+            ft_memset(spaces, ' ', len - totlen);
+        end[totlen] = '\0';
+        ptr = end;
+        end = ft_strcat(spaces, end);
+        free (ptr);
+    }
+    else if (isalone > 0)
+    {
+        spaces = ft_calloc(sizeof(spaces), len);
+        ft_memset(spaces, ' ', len - ft_strlen(end));
+        end[len - totlen] = '\0';
+        ptr = end;
+        if (len < (int)ft_strlen(end))
+        {
+            end = ft_strcat(spaces, end);
+            free (ptr);
+        }
+        else
+            end = ft_strcat(end, spaces);
+    }
+    else
+    {
+        end[totlen] = '\0';
+    }
+    return (end);
 }*/

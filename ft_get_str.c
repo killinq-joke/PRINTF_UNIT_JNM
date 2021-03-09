@@ -6,85 +6,131 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:13:14 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 10:42:27 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:05:34 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char     *ft_get_flags_values(char *flags, char *end)
+static int      ft_flags_numbers(char *flags) // GIVE FLAGS AMOUNT
 {
-    char *spaces;
-    char *ptr;
-    int isneg;
-    int totlen;
-    int isalone;
-    int len;
     int i;
+    int numbers;
 
     i = 0;
-    isalone = 0;
-    totlen = 0;
-    isneg = 0;
-    spaces = ft_calloc(sizeof(spaces), 10);
-    if ((flags[0] == '.' || flags[0] == '-') && ft_isalnum(flags[1]) == 0)
-        return (end);
-    spaces = ft_calloc(sizeof(spaces), 10);
-    while (flags[i] != '.' && flags[i] != '\0')
+    numbers = 0;
+    if (ft_strlen(flags) == 0)
+        return (numbers);
+    while (flags[i] != '.' && flags[i + 1] != '\0')
+        i++;
+    if (i > 0) 
     {
-        spaces[i] = flags[i];
+        numbers++;
         i++;
     }
-    if (ft_strlen(flags) == ft_strlen(spaces))
-        isalone++;
-    i++;
     if (flags[i])
-        totlen = ft_atoi(flags + i);
-    len = ft_atoi(spaces);
-    free (spaces);
-    if (len < 0)
     {
-        len = -len;
-        isneg++;
+        i++;
+        numbers++;
     }
-    if (len >= totlen&& isalone == 0)
+    return (numbers);
+}
+
+static int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
+{
+    int i;
+    char *first_value;
+
+    i = 0;
+    if (ft_strlen(flags) == 0)
+        return (i);
+    first_value = ft_calloc(sizeof(first_value), 10);
+    while (flags[i] != '.' && flags[i] != '\0')
     {
-        spaces = ft_calloc(sizeof(spaces), len);
-        if (((int)ft_strlen(end) < totlen) && isneg == 0)
-            ft_memset(spaces, ' ', len - ft_strlen(end));
-        else if (isneg == 1 && len > totlen)
-            return (end);
-        else
-            ft_memset(spaces, ' ', len - totlen);
-        end[totlen] = '\0';
-        ptr = end;
-        end = ft_strcat(spaces, end);
-        free (ptr);
+        first_value[i] = flags[i];
+        i++;
     }
-    else if (isalone > 0)
+    i = ft_atoi(first_value);
+    free (first_value);
+    return (i);
+}
+
+static int      ft_get_second_value(char *flags) // GET FLAGS SECOND VALUE
+{
+    int i;
+    int a;
+    char *second_value;
+
+    i = 0;
+    a = 0;
+    while (flags[i] != '.' && flags[i + 1] != '\0')
+        i++;
+    if (flags[i] == '.')
+        i++;
+    second_value = ft_calloc(sizeof(second_value), 10);
+    while (flags[i])
     {
-        spaces = ft_calloc(sizeof(spaces), len);
-        ft_memset(spaces, ' ', len - ft_strlen(end));
-        end[len - totlen] = '\0';
-        ptr = end;
-        if (len < (int)ft_strlen(end))
-        {
-            end = ft_strcat(spaces, end);
-            free (ptr);
-        }
-        else
-            end = ft_strcat(end, spaces);
+        second_value[a] = flags[i];
+        a++;
+        i++;
+    }
+    a = ft_atoi(second_value);
+    return (a);
+}
+
+static char     *ft_is_one_value(char *flags, char *end)
+{
+    int i;
+    int side;
+    char *str;
+    
+    i = ft_get_first_value(flags);
+    side = i;
+    if (i < 0)
+    {
+        i = -i;
+        str = ft_calloc(sizeof(str), i + ft_strlen(end));
     }
     else
+        str = ft_calloc(sizeof(str), i + ft_strlen(end));
+    if (i > 0 && i > (int)ft_strlen(end) && -side < 0)
     {
-        end[totlen] = '\0';
+        ft_memset(str, ' ', i - (int)ft_strlen(end));
+        str = ft_strcat(str, end);
+        free (end);
+        return (str);
     }
+    else if (i > ft_strlen(end) && -side > 0)
+    {
+        if (i < 0)
+            -i;
+        ft_strcpy(str, end);
+        ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end));
+        ft_strclr(end);
+        end = ft_strcat(end, str);
+        free (str);
+    }
+    return (end);
+}
+
+static char     *ft_is_two_values(char *flags, char *end)
+{
+    (void)flags;
     return (end);
 }
 
 static char     *ft_index(char *end, char *flags)
 {
-    end = ft_get_flags_values(flags, end);
+    char *ptr;
+
+    ptr = end;
+    printf("%d\n", ft_flags_numbers(flags));
+    if (ft_flags_numbers(flags) == 0)
+        return (end);
+    if (ft_flags_numbers(flags) == 1)
+        end = ft_is_one_value(flags, end);
+    if (ft_flags_numbers(flags) == 2)
+        end = ft_is_two_values(flags, end);
     return (end);
 }
 
@@ -108,8 +154,7 @@ char            *ft_get_str(char *flags, va_list args)
             return (NULL);
         ft_strcpy(end, va_arg);
     }
-    if (ft_strlen(flags) != 0)
-        end = ft_index(end, flags);
+    end = ft_index(end, flags);
     return (end);
     return (NULL);
 }
