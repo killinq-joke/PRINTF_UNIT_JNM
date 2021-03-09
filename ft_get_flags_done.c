@@ -116,7 +116,7 @@ static char     *ft_is_one_value(char *flags, char *end)
         ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end));
         ft_strclr(end);
         end = ft_strcat(end, str);
-        //free (str); //------
+        free (str); //------
     }
     return (end);
 }
@@ -134,7 +134,7 @@ static char     *ft_is_two_values(char *flags, char *end)
     new_flags = ft_calloc(sizeof(new_flags), ft_strlen(ptr));
     ft_strcpy(new_flags, ptr);
     end = ft_is_one_value(new_flags, end);
-   // free (ptr);
+   free (ptr);
     free (new_flags);
     return (end);
 }

@@ -77,15 +77,17 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
     static char *content; /* toto, 18 */
 	char		*temp;
 	int a;
- 
+	char *ptr;
+	
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
 	temp = final;
-	final = ft_strjoin(temp, content);
+	ptr = ft_strjoin(temp, content); 
+	free(ptr);
 	ft_free_main(temp, convert, flags, content);
-	return (final);
+	return ("ok");
 }
 
 char	*ft_else_management(char c, char *final, int *i)
@@ -97,7 +99,6 @@ char	*ft_else_management(char c, char *final, int *i)
 	save_char[1] = '\0';
 	temp = final;
 	final = ft_strjoin(temp, save_char);
-	free (temp);
 	*i += 1; 
 	return (final);
 }
@@ -107,20 +108,35 @@ int     ft_printf(const char *str, ...)
     int i;
     va_list args;
     static char *final = NULL;
+	static 	char	*ptr = NULL;
 	
-    i = 0;
+    i = 0; 
     va_start(args, str);
-	if (!(final = (char *)ft_calloc(sizeof(final), 1)))
+	if (!(final = (char *)ft_calloc(sizeof(final), 2)))
 		return (0);
     while (str[i])
     {
-    if (str[i] == '%')
+   		 if (str[i] == '%')
 			final = ft_percent_management(args, (char *)str + i, final, &i);
 		else
-			final = ft_else_management(str[i], final, &i);
+			ptr = ft_else_management(str[i], final, &i); 
+		ft_strcpy(final, ptr);
+		free(ptr);
+		ptr = NULL;
     }
 	ft_putstr_fd(final, 1);
 	free (final);
 	va_end(args);
     return (i);
 }
+ 
+
+ int main()
+ {
+	ft_printf("hello les amis je suis une\n");
+	//ft_printf("%1.5s\n", "bonjour");
+	//ft_printf("%.5s\n", "bonjour  tout le monde");
+	//ft_printf("%50.5s\n", "bonjour  tout le monde");
+	//ft_printf("%50s\n", "bonjour  tout le monde");
+	
+ }

@@ -52,6 +52,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     else if (ft_charcmp(convert[0], '%') == 0)
         ret = ft_get_percent(flags);
     int i = 0;
+ 
     while (parsed_flags[i] != 0)
     {
         free(parsed_flags[i]);
@@ -59,5 +60,6 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     }
     free(parsed_flags[i]);
     free (parsed_flags);
+    
     return (ret);
 }

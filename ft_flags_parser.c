@@ -31,7 +31,7 @@ char 	**ft_flags_parser(char *flags)
 	char **all_flags;
 	int i;
 
-	i = 0;
+	i = 0; 
 	while (flags[i])
 	{
 		if(flags[i]=='.' && flags[i + 1] == '-')
