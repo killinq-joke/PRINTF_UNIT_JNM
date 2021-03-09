@@ -65,7 +65,7 @@ char	*ft_int_add_space(char *flag, char *itoa, char c, int i)
 	space_nbr < 0 ? space_nbr *= -1 : space_nbr;
 	total_size = (space_nbr) - ft_strlen(itoa);
    	total_size < 0 ? total_size = 0 : total_size;  
-	if (space_nbr == 0)
+	if (space_nbr == 0 && ft_strcmp(itoa, "0") == 0)
 	{	
 		strcpy(itoa, "");
 		return (itoa);

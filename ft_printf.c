@@ -124,3 +124,14 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
+
+int main()
+{
+	ft_printf("%3.7d\n", -2375);
+ 	printf("%3.7d\n", -2375);
+	ft_printf("%7.3d\n", -8473);
+	printf("%7.3d\n", -8473);
+
+	ft_printf("{%5.0d}\n",  42);
+	 printf("{%5.0d}\n",  42);
+} 
