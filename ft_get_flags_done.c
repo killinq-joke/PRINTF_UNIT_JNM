@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 13:01:53 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 13:17:38 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:25:12 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int      ft_flags_numbers(char *flags) // GIVE FLAGS AMOUNT
     numbers = 0;
     if (ft_strlen(flags) == 0)
         return (numbers);
+    if (flags[0] == '.' && ft_isalnum(flags[1]) == 1)
+        return (2);
     while (flags[i] != '.' && flags[i + 1] != '\0')
         i++;
     if (i > 0) 
@@ -45,10 +47,15 @@ static int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
     if (ft_strlen(flags) == 0)
         return (i);
     first_value = ft_calloc(sizeof(first_value), 10);
-    while (flags[i] != '.' && flags[i] != '\0')
+    if (flags[0] == '.')
+        first_value[0] = '0';
+    else
     {
-        first_value[i] = flags[i];
-        i++;
+        while (flags[i] != '.' && flags[i] != '\0')
+        {
+            first_value[i] = flags[i];
+            i++;
+        }
     }
     i = ft_atoi(first_value);
     free (first_value);
@@ -134,6 +141,7 @@ char     *ft_index(char *end, char *flags)
     //char *ptr;
 
     //ptr = end;
+    //printf("%d\n", ft_flags_numbers(flags));
     if (ft_flags_numbers(flags) == 0)
         return (end);
     if (ft_flags_numbers(flags) == 1)

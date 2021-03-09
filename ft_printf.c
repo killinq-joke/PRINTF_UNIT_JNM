@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 13:13:11 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:26:29 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,10 +124,9 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
-/*
+
 int main()
 {
-    printf("%.3sa\n", "hello");
-	ft_printf("%.3sa\n", "hello");
+    printf("%.03s", NULL);
+	//ft_printf("%.03s", NULL);
 }
-*/
