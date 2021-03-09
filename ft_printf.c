@@ -156,7 +156,8 @@ int main()
 	//  ft_printf("%-5.0da\n", 0);
 	//  printf("%-5.0da\n", 0);
 	 
-	printf("####DDDDDDDDDDD#####\n");
-	ft_printf("%.0x %.0x\n", 0,0);
-	printf("%.0x %.0x\n", 0,0);
+	// printf("####DDDDDDDDDDD#####\n");
+	// ft_printf("%.0x %.0x\n", 15,50);
+	// printf("%.0x %.0x\n", 15,50);
+	printf("%p\n", NULL);
 } 

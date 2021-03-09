@@ -26,7 +26,7 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	char *ptr;
 	long long int va_arg;
 	
-	va_arg = va_arg(args, long long int);
+	va_arg = va_arg(args, long long int); 
 	if ((type == 2 || type == 0) && va_arg == 0)
 	{	
 		ptr = ft_itoa(0);

@@ -112,13 +112,11 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 
 char	*ft_get_int(char *flags, va_list args, char **parsed_flags, char *ret)
 {
-	char 	*itoa;
-	int 	va_arg; 
+	char 	*itoa; 
 	char	*end;
  
-	va_arg = va_arg(args, int);
 	itoa = NULL;
-	ret == NULL ? (itoa = ft_itoa((long long int)va_arg)) : (itoa = ft_strdup(ret));
+	ret == NULL ? (itoa = ft_itoa((long long int)va_arg(args, int))) : (itoa = ft_strdup(ret));
 	if ((ft_strlen(flags)) > 0) 
 	{
 		end = ft_int_flags(parsed_flags, itoa);
