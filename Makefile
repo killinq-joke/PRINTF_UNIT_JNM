@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/03/08 18:41:10 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/09 13:04:28 by trofidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC = 	ft_printf.c			\
 		ft_get_e.c			\
 		ft_get_n.c			\
 		ft_get_percent.c	\
-		ft_flags_parser.c \
+		ft_flags_parser.c	\
+		ft_get_flags_done.c	\
 		ft_get_g.c
 
 OBJ = $(SRC:.c=.o)

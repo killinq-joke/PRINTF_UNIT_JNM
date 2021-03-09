@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 18:39:06 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:04:08 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ char	*ft_get_g(char *flags, va_list args);
 char	*ft_get_n(char *flags, va_list args, int a);
 char    *ft_get_percent(char *flags);
 char	**ft_flags_parser(char *flags);
-char			*ft_get_it_done(double nbr);
+char	*ft_get_it_done(double nbr);
+char    *ft_index(char *end, char *flags);
 
 /*
 **SIZE_T FUNCTIONS

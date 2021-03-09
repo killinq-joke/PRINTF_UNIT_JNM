@@ -87,6 +87,7 @@ char	*ft_get_g(char *flags, va_list args)
 		}
 		else
 			flt = ft_concat_string(va_arg);
+		flt = ft_index(flt, flags); // TEST FOR FLAGS
 		return (flt);
 	}
 	return (NULL);
