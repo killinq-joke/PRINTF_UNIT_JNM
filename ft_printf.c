@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 12:05:58 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:56:56 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,12 +124,12 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
-
+/*
 int main()
 {
-	printf("%-18sa\n", "goes over");
-	ft_printf("%-18sa\n", "goes over");
-}
+    printf("%.s\n", "toto");
+	ft_printf("%.s\n", "toto");
+}*/
 
 /*
 static char     *ft_get_flags_values(char *flags, char *end)

@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:13:14 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 12:05:34 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:57:25 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ static char     *ft_is_one_value(char *flags, char *end)
         free (end);
         return (str);
     }
-    else if (i > ft_strlen(end) && -side > 0)
+    else if (i > (int)ft_strlen(end) && -side > 0)
     {
         if (i < 0)
-            -i;
+            i = -i;
         ft_strcpy(str, end);
         ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end));
         ft_strclr(end);
@@ -115,16 +115,26 @@ static char     *ft_is_one_value(char *flags, char *end)
 
 static char     *ft_is_two_values(char *flags, char *end)
 {
-    (void)flags;
+    int value;
+    char *ptr;
+    char *new_flags;
+
+    value = ft_get_second_value(flags);
+    end[value] = '\0';
+    value = ft_get_first_value(flags);
+    ptr = ft_itoa(value);
+    new_flags = ft_calloc(sizeof(new_flags), ft_strlen(ptr));
+    ft_strcpy(new_flags, ptr);
+    end = ft_is_one_value(new_flags, end);
+    free (ptr);
     return (end);
 }
 
 static char     *ft_index(char *end, char *flags)
 {
-    char *ptr;
+    //char *ptr;
 
-    ptr = end;
-    printf("%d\n", ft_flags_numbers(flags));
+    //ptr = end;
     if (ft_flags_numbers(flags) == 0)
         return (end);
     if (ft_flags_numbers(flags) == 1)
