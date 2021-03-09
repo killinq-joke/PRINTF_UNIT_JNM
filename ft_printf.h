@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:19:02 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 13:04:08 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 17:07:04 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char    *ft_index(char *end, char *flags);
 int     ft_printf(const char *str, ...);
 int     ft_is_convert(char str);
 int		ft_point_fetcher(char *flags);
+int     ft_get_second_value(char *flags);
+int     ft_get_first_value(char *flags);
 /*
 **T_LIST
 */

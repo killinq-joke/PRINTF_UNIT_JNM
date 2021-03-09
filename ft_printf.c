@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 19:43:25 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 17:38:40 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,40 +124,3 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (i);
 }
-
-int main()
-{
-	// ft_printf("%3.7d\n", -2375);
- 	// printf("%3.7d\n", -2375);
-	// ft_printf("%7.4d\n", -8473);
-	// printf("%7.4d\n", -8473);
-
-	// ft_printf("{%5.0d}\n",  42);
-	//  printf("{%5.0d}\n",  42);
-	//  ft_printf("%04d\n", -532);
-	//  printf("%04d\n", -532);
-	//  ft_printf("%07d\n", -54);
-	//  printf("%07d\n", -54);
-	//  ft_printf("%20.5d\n", -1024);
-	//  printf("%20.5d\n", -1024);
-	//  ft_printf("{%05.*d}\n", -15, 42);
-	// //  printf("{%05.*d}\n", -15, 42);
-
-	//  ft_printf("st13 %0d\n", 0);
-	//  printf("st13 %0d\n",  0);
-	//  ft_printf("%.0d\n", 0);
-	//  printf("%.0d\n", 0);
-
-	//  ft_printf("t3 %50.0x\n", 10);
-	//  printf("t3 %50.0x\n", 10);
-	//  ft_printf("t3 %.0d\n", 10);
-	//  printf("t3 %.0d\n", 10);
-
-	//  ft_printf("%-5.0da\n", 0);
-	//  printf("%-5.0da\n", 0);
-	 
-	// printf("####DDDDDDDDDDD#####\n");
-	// ft_printf("%.0x %.0x\n", 15,50);
-	// printf("%.0x %.0x\n", 15,50);
-	printf("%p\n", NULL);
-} 

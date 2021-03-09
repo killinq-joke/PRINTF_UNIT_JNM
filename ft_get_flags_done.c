@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 13:01:53 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 15:39:17 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/09 17:36:59 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int      ft_flags_numbers(char *flags) // GIVE FLAGS AMOUNT
     return (numbers);
 }
 
-static int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
+int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
 {
     int i;
     char *first_value;
@@ -58,11 +58,11 @@ static int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
         }
     }
     i = ft_atoi(first_value);
-    free (first_value);
+    free (first_value); //------
     return (i);
 }
 
-static int      ft_get_second_value(char *flags) // GET FLAGS SECOND VALUE
+int      ft_get_second_value(char *flags) // GET FLAGS SECOND VALUE
 {
     int i;
     int a;
@@ -105,6 +105,7 @@ static char     *ft_is_one_value(char *flags, char *end)
     {
         ft_memset(str, ' ', i - (int)ft_strlen(end));
         str = ft_strcat(str, end);
+        free (end);
         return (str);
     }
     else if (i > (int)ft_strlen(end) && -side > 0)
@@ -115,7 +116,7 @@ static char     *ft_is_one_value(char *flags, char *end)
         ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end));
         ft_strclr(end);
         end = ft_strcat(end, str);
-        free (str);
+        //free (str); //------
     }
     return (end);
 }
@@ -133,7 +134,7 @@ static char     *ft_is_two_values(char *flags, char *end)
     new_flags = ft_calloc(sizeof(new_flags), ft_strlen(ptr));
     ft_strcpy(new_flags, ptr);
     end = ft_is_one_value(new_flags, end);
-    free (ptr);
+   // free (ptr);
     free (new_flags);
     return (end);
 }
