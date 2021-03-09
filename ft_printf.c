@@ -155,10 +155,7 @@ int main()
 
 	//  ft_printf("%-5.0da\n", 0);
 	//  printf("%-5.0da\n", 0);
-	printf("####XXXXXX#####\n\n");
-	ft_printf("%20.10x\n", 841);
-	printf("%20.10x\n", 841);
-	printf("####DDDDDD#####\n\n");
-	ft_printf("%20.10x\n", 841);
-	printf("%20.10x\n", 841);
+	printf("####XXXXXX#####\n");
+	ft_printf("%-3xa\n", 0);
+	printf("%-3xa\n", 0);
 } 

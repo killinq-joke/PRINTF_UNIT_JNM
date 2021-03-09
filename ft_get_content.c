@@ -29,11 +29,13 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     else if (ft_strcmp(convert, "%p") == 0)
         ret = ft_get_ptr(flags, args, 1);
     else if (ft_strcmp(convert, "%X") == 0)
+    {
         ret = ft_get_ptr(flags, args, 0);
+        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
+    }    
     else if (ft_strcmp(convert, "%x") == 0)
     {
-        ret = ft_get_ptr(flags, args, 2);
-        printf("%s\n", ret);
+        ret = ft_get_ptr(flags, args, 2); 
         ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
     }    
     else if (ft_strcmp(convert, "%u") == 0)

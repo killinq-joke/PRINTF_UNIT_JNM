@@ -9,6 +9,8 @@ read -p "Commentaire pour le commit: " comment
 
 
 printf "${SPACER} ${GREEN}RESULTS${NC} ${SPACER}\n\n\n"
+    make fclean
+    rm a.aout
     git add .
     git commit -m "${comment}"
     git push

@@ -44,7 +44,8 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	else
 	{
 		end = ft_get_no_ptr(end);
-		end = ft_index(end, flags); // TEST FOR FLAGS
+		return (end);
+		//end = ft_index(end, flags); // TEST FOR FLAGS
 		return (end);
 	}
 	return (NULL);
