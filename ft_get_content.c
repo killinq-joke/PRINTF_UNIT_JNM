@@ -19,7 +19,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
  
     parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
-        ret = ft_get_int(flags, args, parsed_flags);
+        ret = ft_get_int(flags, args, parsed_flags, NULL);
     else if (ft_strcmp(convert, "%s") == 0)
         ret = ft_get_str(flags, args);
     else if (ft_strcmp(convert, "%c") == 0)
@@ -31,9 +31,16 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     else if (ft_strcmp(convert, "%X") == 0)
         ret = ft_get_ptr(flags, args, 0);
     else if (ft_strcmp(convert, "%x") == 0)
+    {
         ret = ft_get_ptr(flags, args, 2);
+        printf("%s\n", ret);
+        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
+    }    
     else if (ft_strcmp(convert, "%u") == 0)
+    {
         ret = ft_get_u(flags, args);
+        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
+    }
     else if (ft_strcmp(convert, "%e") == 0)
         ret = ft_get_e(flags, args); 
     else if (ft_strcmp(convert, "%n") == 0)
@@ -42,7 +49,6 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_g(flags, args);
     else if (ft_charcmp(convert[0], '%') == 0)
         ret = ft_get_percent(flags);
-
     int i = 0;
     while (parsed_flags[i] != 0)
     {

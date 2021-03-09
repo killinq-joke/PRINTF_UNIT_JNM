@@ -29,7 +29,18 @@ int		ft_point_fetcher(char *flags)
 char 	**ft_flags_parser(char *flags)
 {
 	char **all_flags;
-	
+	int i;
+
+	i = 0;
+	while (flags[i])
+	{
+		if(flags[i]=='.' && flags[i + 1] == '-')
+		{ 
+			ft_strlcpy(flags, flags, i+1);
+			break;
+		}
+		i++;
+	}
 	if (flags[ft_strlen(flags) - 1] == '.')
 	{
 		flags[ft_strlen(flags)] = '0';
