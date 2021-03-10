@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:57:26 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 23:33:19 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/10 02:43:19 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,10 @@ char		*ft_itoa_pointer(long long int n, char *base)
 	long long int			nb;
 	long long int	neg;
 	char			*str;
-    
+	
 	nb = (long long int)n;
-	i = ft_lencheck(nb, base) - 1; 
-	if (n < 0)
-		str = ft_calloc(sizeof(str), i + 1);
-	else
-		str = ft_calloc(sizeof(str), i);
+	i = ft_lencheck(nb, base) - 1;
+	str = ft_calloc(sizeof(str), i + 1);
 	if (nb == 0)
 	{
 		str[0] = '0';
