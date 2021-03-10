@@ -51,13 +51,10 @@ char		*ft_itoa_pointer(long long int n, char *base)
 	long long int			nb;
 	long long int	neg;
 	char			*str;
-    
+	
 	nb = (long long int)n;
-	i = ft_lencheck(nb, base) - 1; 
-	if (n < 0)
-		str = ft_calloc(sizeof(str), i + 1);
-	else
-		str = ft_calloc(sizeof(str), i);
+	i = ft_lencheck(nb, base) - 1;
+	str = ft_calloc(sizeof(str), i + 1);
 	if (nb == 0)
 	{
 		str[0] = '0';

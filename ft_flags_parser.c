@@ -31,7 +31,15 @@ char 	**ft_flags_parser(char *flags)
 	char **all_flags;
 	int i;
 
-	i = 0; 
+	i = 0;
+	if (ft_strlen(flags) == 0)
+	{	 
+		if (!(all_flags = ft_calloc(sizeof(all_flags), 2)))
+			return (NULL);
+		all_flags[0] = ft_strdup("NULL");
+		all_flags[1] = 0;
+		return (all_flags);
+	}	
 	while (flags[i])
 	{
 		if(flags[i]=='.' && flags[i + 1] == '-')

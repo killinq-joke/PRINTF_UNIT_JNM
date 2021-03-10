@@ -12,11 +12,26 @@
 
 #include "ft_printf.h"
 
+void    ft_flags_parser_free(char **parsed_flags)
+{
+    int i = 0;
+ 
+    while (parsed_flags[i] != 0)
+    {
+        free(parsed_flags[i]);
+        i++;
+    }
+    free(parsed_flags[i]);
+    free (parsed_flags);
+}
+
 char    *ft_get_content(char *flags, char *convert, va_list args, int a)
 {
     char *ret;
     char **parsed_flags;
- 
+    char    *ptr;
+
+    ret = NULL;
     parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
         ret = ft_get_int(flags, args, parsed_flags, NULL);
@@ -30,13 +45,21 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_ptr(flags, args, 1);
     else if (ft_strcmp(convert, "%X") == 0)
     {
-        ret = ft_get_ptr(flags, args, 0);
-        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
+        ptr = ft_get_ptr(flags, args, 0);
+        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ptr) : 0;
+        free (ptr); 
     }    
     else if (ft_strcmp(convert, "%x") == 0)
-    {
-        ret = ft_get_ptr(flags, args, 2);  
-        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ret) : 0; 
+    { 
+        ptr = ft_get_ptr(flags, args, 2);
+        ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ptr) : 0; 
+        if (ret == NULL)
+         {
+             ft_flags_parser_free(parsed_flags);
+             return (ptr);
+         }   
+        else
+            free(ptr);
     }    
     else if (ft_strcmp(convert, "%u") == 0)
     {
@@ -51,15 +74,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
         ret = ft_get_g(flags, args);
     else if (ft_charcmp(convert[0], '%') == 0)
         ret = ft_get_percent(flags);
-    int i = 0;
- 
-    while (parsed_flags[i] != 0)
-    {
-        free(parsed_flags[i]);
-        i++;
-    }
-    free(parsed_flags[i]);
-    free (parsed_flags);
+    ft_flags_parser_free(parsed_flags);
     
     return (ret);
 }

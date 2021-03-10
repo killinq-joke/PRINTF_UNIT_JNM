@@ -25,12 +25,16 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	char *end;
 	char *ptr;
 	long long int va_arg;
+	type = 1;
 	
 	va_arg = va_arg(args, long long int); 
 	if ((type == 2 || type == 0) && va_arg == 0)
 	{	
-		ptr = ft_itoa(0);
-		return (ptr);
+
+		//end = ft_calloc(sizeof(end), ft_strlen(ptr) + 1);
+		end = ft_strdup("0");
+
+		return(end);
 	}
 	if (type == 0)
 		ptr = ft_itoa_pointer(va_arg, "0123456789ABCDEF");
@@ -38,7 +42,7 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 		ptr = ft_itoa_pointer(va_arg, "0123456789abcdef");
 	if (type == 2)
 		ptr = ft_itoa_pointer(va_arg, "0123456789abcdef");
-	end = ft_calloc(sizeof(end), ft_strlen(ptr));
+	end = ft_calloc(sizeof(end), ft_strlen(ptr) + 1 + ft_get_first_value(flags) + ft_get_second_value(flags));
 	ft_strcpy(end, ptr);
 	free (ptr);
 	if (ft_strchr(flags, '#') != NULL || type == 1)

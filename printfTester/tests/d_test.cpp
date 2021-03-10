@@ -8,7 +8,7 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 80
+#define TEST_LIMIT 12
 
 int iTest = 1;
 int testNumber;
