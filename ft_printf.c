@@ -104,7 +104,7 @@ char	*ft_else_management(char c, char *final, int *i)
 	*i += 1; 
 	return (final);
 }
-
+ 
 int     ft_printf(const char *str, ...)
 {
     int i;
@@ -139,11 +139,4 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (a);
 }
-
-int main()
-{
-	ft_printf("%0-*.*da\n",6, 2, 102);
-	printf("%0-*.*da\n",6, 2, 102);
-	//printf("%d\n",ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
-	//printf("%d\n",printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
-}
+ 

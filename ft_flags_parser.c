@@ -26,6 +26,32 @@ int		ft_point_fetcher(char *flags)
 	return (0);
 }
 
+void	ft_clean_flags(char	**all_flags)
+{
+	int i;
+	int j;
+	int is_num;
+
+	i = 0;
+	while (all_flags[i] != 0)
+	{
+		j = 0;
+		is_num = 0;
+		while (all_flags[i][j])
+		{
+			if (all_flags[i][j] == '-' && is_num == 1)
+				{
+					ft_strcpy(all_flags[i], all_flags[i] + j);
+					break;
+				}
+			if (ft_isdigit(all_flags[i][j]) == 1)
+					is_num = 1;  
+			j++;
+		}
+		i++;
+	} 
+}
+
 char 	**ft_flags_parser(char *flags)
 {
 	char **all_flags;
@@ -63,5 +89,6 @@ char 	**ft_flags_parser(char *flags)
 	}
 	else
 		all_flags = ft_split(flags, '.');
+  	ft_clean_flags(all_flags);
 	return (all_flags);
 }

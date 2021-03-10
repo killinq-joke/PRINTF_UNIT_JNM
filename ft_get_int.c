@@ -95,7 +95,9 @@ char	*ft_int_flags(char **parsed_flags, char *itoa)
 	i--;
 	j = i;
 	while (i >= 0)
-	{	
+	{	 
+		if (parsed_flags[0][0] == '0' && parsed_flags[0][1] == '-')
+			ft_strcpy(parsed_flags[0], parsed_flags[0] + 1);
 		if (parsed_flags[0][0] == '.' || i == 1 || (parsed_flags[0][0] == '0' && count == 0))
 		{
 			parsed_flags[0][0] == '0' && j == 0 ? (is_zero = 1) : (is_zero = 0);
@@ -114,7 +116,7 @@ char	*ft_get_int(char *flags, va_list args, char **parsed_flags, char *ret)
 {
 	char 	*itoa; 
 	char	*end;
- 
+	
 	itoa = NULL;
 	ret == NULL ? (itoa = ft_itoa((long long int)va_arg(args, int))) : (itoa = ft_strdup(ret));
 	if ((ft_strlen(flags)) > 0) 
