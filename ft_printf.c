@@ -108,6 +108,7 @@ char	*ft_else_management(char c, char *final, int *i)
 int     ft_printf(const char *str, ...)
 {
     int i;
+	int a = 0;
     va_list args;
     static char *final = NULL;
 	static 	char	*ptr = NULL;
@@ -130,95 +131,19 @@ int     ft_printf(const char *str, ...)
 		strcpy(final, p);
 		free(p);
 		free(ptr);
+		
     }
+	a = ft_strlen(final);
 	ft_putstr_fd(final, 1);
 	free (final);
 	va_end(args);
-    return (i);
+    return (a);
 }
- 
 
- int main()
- {
- 	//  ft_printf(" %x ", 0);
-	//  ft_printf(" %.x ", 0);
-	// ft_printf(" %-.2x ", 0);
-	//  ft_printf(" %-2.2x ", 0);
-	//   ft_printf(" %-3.2x ", 0);
-	ft_printf(" %-3.2x %-10.42x ", 0, 0);
-	ft_printf(" %-3.2x %10.42x ", 1, -1);
-	 ft_printf(" %-3.2x %10.42x ", 10, -10);
- ft_printf(" *%-*.*x* *%*.*x* ", 4, 5, 10, 10, 21, -10);
-	 ft_printf(" *%-*.*x* *%*.*x* ", 6, 2, 102, 10, 21, -101);
-	 ft_printf(" *%*.*x* *%*.*x* ", -6, 2, 102, 10, 21, 101);
-	ft_printf(" 0*%0-*.*x*0 0*%0*.*x*0 ", 6, 2, 102, 10, 21, -101);
- ft_printf(" 0*%0-*.*x*0 0*%0*.*x*0 ", 2, 6, 102, 21, 10, -101);
-	 ft_printf(" 0*%0-*x*0 0*%0*x*0 ", 21, 1021, 21, -1011);
-	ft_printf(" 0*%-0*.10x*0 0*%-0*.0x*0 ", 21, 1021, 21, -1011);
- ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -2, 0, 21, 1);
-ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, INT_MAX, 21, INT_MIN);
-	ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, LONG_MAX, 21, LONG_MIN);
-	 ft_printf(" --0*%-0*.20x*0 0*%-0*.10x*0-- ", -21, CHAR_MAX, 21, CHAR_MIN);
-	 ft_printf(" --0*%-0*.2x*0 0*%-0*.2x*0-- ", -21, UINT_MAX, 21, UINT_MAX + 1);
-// 	ft_printf("%9.0x", UINT_MAX);
-// 	ft_printf("%9.1x", UINT_MAX);
-// 	 ft_printf("%9.2x", UINT_MAX);
-//  ft_printf("%9.10x", UINT_MAX);
-// ft_printf("%10.0x", UINT_MAX);
-// 	 ft_printf("%10.1x", UINT_MAX);
-// 	ft_printf("%10.2x", UINT_MAX);
-// 	 ft_printf("%10.10x", UINT_MAX);
-// 	ft_printf("%11.0x", UINT_MAX);
-// 	ft_printf("%11.1x", UINT_MAX);
-//  ft_printf("%11.2x", UINT_MAX);
-// 	 ft_printf("%11.10x", UINT_MAX);
-// 	ft_printf("%-9.0x", UINT_MAX);
-// ft_printf("%-9.1x", UINT_MAX);
-// 	 ft_printf("%-9.2x", UINT_MAX);
-// 	ft_printf("%-9.10x", UINT_MAX);
-// 	 ft_printf("%-10.0x", UINT_MAX);
-// 	ft_printf("%-10.1x", UINT_MAX);
-// ft_printf("%-10.2x", UINT_MAX);
-// ft_printf("%-10.10x", UINT_MAX);
-// 	 ft_printf("%-11.0x", UINT_MAX);
-// 	 ft_printf("%-11.1x", UINT_MAX);
-// 	 ft_printf("%-11.2x", UINT_MAX);
-// 	ft_printf("%-11.10x", UINT_MAX);
-// 	 ft_printf("%09.0x", UINT_MAX);
-//  ft_printf("%09.1x", UINT_MAX);
-// 	 ft_printf("%09.2x", UINT_MAX);
-// 	 ft_printf("%09.10x", UINT_MAX);
-// 	 ft_printf("%010.0x", UINT_MAX);
-// 	 ft_printf("%010.1x", UINT_MAX);
-// 	 ft_printf("%010.2x", UINT_MAX);
-//  ft_printf("%010.10x", UINT_MAX);
-// 	 ft_printf("%011.0x", UINT_MAX);
-//  ft_printf("%011.1x", UINT_MAX);
-// 	 ft_printf("%011.2x", UINT_MAX);
-// 	 ft_printf("%011.10x", UINT_MAX);
-// 	 ft_printf("%09.0x", UINT_MAX + 1);
-// 	 ft_printf("%09.1x", UINT_MAX + 1);
-// 	 ft_printf("%09.2x", UINT_MAX + 1);
-// 	 ft_printf("%09.10x", UINT_MAX + 1);
-// 	ft_printf("%010.0x", UINT_MAX + 1);
-// 	 ft_printf("%010.1x", UINT_MAX + 1);
-// 	 ft_printf("%010.2x", UINT_MAX + 1);
-// 	 ft_printf("%010.10x", UINT_MAX + 1);
-// 	 ft_printf("%011.0x", UINT_MAX + 1);
-// 	 ft_printf("%011.1x", UINT_MAX + 1);
-// 	 ft_printf("%011.2x", UINT_MAX + 1);
-// 	 ft_printf("%011.10x", UINT_MAX + 1);
-// 	 ft_printf("%.0x", 0);
-// 	ft_printf("%.0x", 5);
-// 	 ft_printf("%.0x", 10);
-
-// 	TEST(72, print("%1.x", 0));
-// 	TEST(73, print("%2.x", 0));
-// 	TEST(74, print("%3.x", 0));
-// 	TEST(75, print("%1.1x", 0));
-// 	TEST(76, print("%1.2x", 0));
-// 	TEST(77, print("%1.3x", 0));
-// 	TEST(78, print("%1.1x", 0));
-// 	TEST(79, print("%2.2x", 0));
-// 	TEST(80, print("%3.3x", 0));
- }
+int main()
+{
+	ft_printf("%0-*.*da\n",6, 2, 102);
+	printf("%0-*.*da\n",6, 2, 102);
+	//printf("%d\n",ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+	//printf("%d\n",printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+}
