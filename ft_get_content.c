@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/08 19:39:51 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/10 02:52:09 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,14 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     {
         ptr = ft_get_ptr(flags, args, 0);
         ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ptr) : 0;
-        free (ptr); 
+        if (ret == NULL)
+         {
+             ft_flags_parser_free(parsed_flags);
+             return (ptr);
+         }   
+        else
+            free(ptr);
+
     }    
     else if (ft_strcmp(convert, "%x") == 0)
     { 
