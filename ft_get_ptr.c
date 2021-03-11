@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:25:24 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/10 02:52:50 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 06:59:46 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	a < 0 ? a = -a : a;
 	b < 0 ? b = -b : b;
 	va_arg = va_arg(args, long long int); 
-	if ((type == 2 || type == 0) && va_arg == 0)
+	if ((type == 2 || type == 0 || type == 1) && va_arg == 0)
 	{	
 		//end = ft_calloc(sizeof(end), ft_strlen(ptr) + 1);
-		end = ft_strdup("0");
+		if (type == 2 || type == 0)
+			end = ft_strdup("0");
+		else
+			end = ft_strdup("(nil)");
 		return(end);
 	}
 	if (type == 0)

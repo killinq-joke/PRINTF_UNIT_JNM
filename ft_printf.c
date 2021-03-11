@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 06:51:23 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 07:00:00 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int main()
 {
 	printf("%p", NULL);
 	ft_printf("%p", NULL);
-	*ft_printf(" %x ", 0);
+	ft_printf(" %x ", 0);
 	ft_printf(" %.x ", 0);
 	ft_printf(" %-.2x ", 0);
 	ft_printf(" %-2.2x ", 0);
