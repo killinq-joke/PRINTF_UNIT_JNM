@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 13:01:53 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/10 02:32:20 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 06:43:25 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,54 +36,6 @@ static int      ft_flags_numbers(char *flags) // GIVE FLAGS AMOUNT
         numbers++;
     }
     return (numbers);
-}
-
-int      ft_get_first_value(char *flags) // GET FLAGS FIRST VALUE
-{
-    int i;
-    char *first_value;
-
-    i = 0;
-    if (ft_strlen(flags) == 0)
-        return (i);
-    first_value = ft_calloc(sizeof(first_value), 10);
-    if (flags[0] == '.')
-        first_value[0] = '0';
-    else
-    {
-        while (flags[i] != '.' && flags[i] != '\0')
-        {
-            first_value[i] = flags[i];
-            i++;
-        }
-    }
-    i = ft_atoi(first_value);
-    free (first_value); //------
-    return (i);
-}
-
-int      ft_get_second_value(char *flags) // GET FLAGS SECOND VALUE
-{
-    int i;
-    int a;
-    char *second_value;
-
-    i = 0;
-    a = 0;
-    while (flags[i] != '.' && flags[i + 1] != '\0')
-        i++;
-    if (flags[i] == '.')
-        i++;
-    second_value = ft_calloc(sizeof(second_value), 10);
-    while (flags[i])
-    {
-        second_value[a] = flags[i];
-        a++;
-        i++;
-    }
-    a = ft_atoi(second_value);
-    free (second_value);
-    return (a);
 }
 
 static char     *ft_is_one_value(char *flags, char *end)

@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/03/09 13:04:28 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/11 06:45:48 by trofidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,21 +17,23 @@ CFLAGS=-Wall -Wextra -Werror
 RM=rm -f
 LDFLAGS=-L
 LDLIBS=-lft
-SRC = 	ft_printf.c			\
-		ft_get_char.c		\
-		ft_get_content.c	\
-		ft_get_float.c		\
-		ft_get_int.c		\
-		ft_get_ptr.c		\
-		ft_get_str.c		\
-		ft_is_convert.c		\
-		ft_star_value.c		\
-		ft_get_u.c			\
-		ft_get_e.c			\
-		ft_get_n.c			\
-		ft_get_percent.c	\
-		ft_flags_parser.c	\
-		ft_get_flags_done.c	\
+SRC = 	ft_printf.c				\
+		ft_get_char.c			\
+		ft_get_content.c		\
+		ft_get_float.c			\
+		ft_get_int.c			\
+		ft_get_ptr.c			\
+		ft_get_str.c			\
+		ft_is_convert.c			\
+		ft_star_value.c			\
+		ft_get_u.c				\
+		ft_get_e.c				\
+		ft_get_n.c				\
+		ft_get_percent.c		\
+		ft_flags_parser.c		\
+		ft_get_flags_done.c		\
+		ft_get_first_value.c	\
+		ft_get_second_value.c	\
 		ft_get_g.c
 
 OBJ = $(SRC:.c=.o)

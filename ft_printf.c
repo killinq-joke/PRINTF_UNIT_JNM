@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 06:32:27 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 06:51:23 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,9 @@ int     ft_printf(const char *str, ...)
 /*
 int main()
 {
-	ft_printf(" %x ", 0);
+	printf("%p", NULL);
+	ft_printf("%p", NULL);
+	*ft_printf(" %x ", 0);
 	ft_printf(" %.x ", 0);
 	ft_printf(" %-.2x ", 0);
 	ft_printf(" %-2.2x ", 0);
