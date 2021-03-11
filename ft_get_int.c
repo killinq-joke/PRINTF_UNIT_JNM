@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:31:00 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 05:53:44 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:53:36 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ char	*ft_get_int(char *flags, va_list args, char **parsed_flags, char *ret)
 	char	*end;
 	
 	itoa = NULL;
-	ret == NULL ? (itoa = ft_itoa((long long int)va_arg(args, int))) : (itoa = ft_strdup(ret));
+	ret == NULL ? (itoa = ft_long_itoa((long long int)va_arg(args, long long int))) : (itoa = ft_strdup(ret));
 	if ((ft_strlen(flags)) > 0) 
 	{
 		end = ft_int_flags(parsed_flags, itoa);

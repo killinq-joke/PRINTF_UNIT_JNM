@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 07:00:00 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:31:39 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,89 +139,3 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (a);
 }
-/*
-int main()
-{
-	printf("%p", NULL);
-	ft_printf("%p", NULL);
-	ft_printf(" %x ", 0);
-	ft_printf(" %.x ", 0);
-	ft_printf(" %-.2x ", 0);
-	ft_printf(" %-2.2x ", 0);
-	ft_printf(" %-3.2x ", 0);
-	ft_printf(" %-3.2x %10.42x ", 0, 0);
-	ft_printf(" %-3.2x %10.42x ", 1, -1);
- 	ft_printf(" %-3.2x %10.42x ", 10, -10);
- 	ft_printf(" *%-*.*x* *%*.*x* ", 4, 5, 10, 10, 21, -10);
-	ft_printf(" *%-*.*x* *%*.*x* ", 6, 2, 102, 10, 21, -101);
-	ft_printf(" *%*.*x* *%*.*x* ", -6, 2, 102, 10, 21, 101);
-	ft_printf(" 0*%0-*.*x*0 0*%0*.*x*0 ", 6, 2, 102, 10, 21, -101);
-	ft_printf(" 0*%0-*.*x*0 0*%0*.*x*0 ", 2, 6, 102, 21, 10, -101);
-	ft_printf(" 0*%0-*x*0 0*%0*x*0 ", 21, 1021, 21, -1011);
-	ft_printf(" 0*%-0*.10x*0 0*%-0*.0x*0 ", 21, 1021, 21, -1011);
-	ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -2, 0, 21, 1);
-	ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, INT_MAX, 21, INT_MIN);
-	ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, LONG_MAX, 21, LONG_MIN);
-	ft_printf(" --0*%-0*.20x*0 0*%-0*.10x*0-- ", -21, CHAR_MAX, 21, CHAR_MIN);
-	ft_printf(" --0*%-0*.2x*0 0*%-0*.2x*0-- ", -21, UINT_MAX, 21, UINT_MAX + 1);
-	ft_printf("%9.0u", UINT_MAX);
-	ft_printf("%9.1u", UINT_MAX);
- 	ft_printf("%9.2u", UINT_MAX);
-	ft_printf("%9.10u", UINT_MAX);
-	ft_printf("%10.0u", UINT_MAX);
-	ft_printf("%10.1u", UINT_MAX);
-	ft_printf("%10.2u", UINT_MAX);
-	ft_printf("%10.10u", UINT_MAX);
-	ft_printf("%11.0u", UINT_MAX);
-	ft_printf("%11.1u", UINT_MAX);
-	ft_printf("%11.2u", UINT_MAX);
-	ft_printf("%11.10u", UINT_MAX);
-	ft_printf("%-9.0u", UINT_MAX);
-	ft_printf("%-9.1u", UINT_MAX);
-	ft_printf("%-9.2u", UINT_MAX);
-	ft_printf("%-9.10u", UINT_MAX);
-	ft_printf("%-10.0u", UINT_MAX);
-	ft_printf("%-10.1u", UINT_MAX);
-	ft_printf("%-10.2u", UINT_MAX);
-	ft_printf("%-10.10u", UINT_MAX);
-	ft_printf("%-11.0u", UINT_MAX);
-	ft_printf("%-11.1u", UINT_MAX);
-	ft_printf("%-11.2u", UINT_MAX);
-	ft_printf("%-11.10u", UINT_MAX);
-	ft_printf("%09.0u", UINT_MAX);
-	ft_printf("%09.1u", UINT_MAX);
-	ft_printf("%09.2u", UINT_MAX);
-	ft_printf("%09.10u", UINT_MAX);
-	ft_printf("%010.0u", UINT_MAX);
-	ft_printf("%010.1u", UINT_MAX);
-	ft_printf("%010.2u", UINT_MAX);
-	ft_printf("%010.10u", UINT_MAX);
-	ft_printf("%011.0u", UINT_MAX);
-	ft_printf("%011.1u", UINT_MAX);
-	ft_printf("%011.2u", UINT_MAX);
-	ft_printf("%011.10u", UINT_MAX);
-	ft_printf("%09.0u", UINT_MAX + 1);
-	ft_printf("%09.1u", UINT_MAX + 1);
-	ft_printf("%09.2u", UINT_MAX + 1);
-	ft_printf("%09.10u", UINT_MAX + 1);
-	ft_printf("%010.0u", UINT_MAX + 1);
-	ft_printf("%010.1u", UINT_MAX + 1);
-	ft_printf("%010.2u", UINT_MAX + 1);
-	ft_printf("%010.10u", UINT_MAX + 1);
-	ft_printf("%011.0u", UINT_MAX + 1);
-	ft_printf("%011.1u", UINT_MAX + 1);
-	ft_printf("%011.2u", UINT_MAX + 1);
-	ft_printf("%011.10u", UINT_MAX + 1);
-	ft_printf("%.0u", 0);
-	ft_printf("%.0u", 5);
-	ft_printf("%.0u", 10);
-	ft_printf("%1.u", 0);
-	ft_printf("%2.u", 0);
-	ft_printf("%3.u", 0);
-	ft_printf("%1.1u", 0);
-	ft_printf("%1.2u", 0);
-	ft_printf("%1.3u", 0);
-	ft_printf("%1.1u", 0);
-	ft_printf("%2.2u", 0);
-	ft_printf("%3.3u", 0);
-}*/
