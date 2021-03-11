@@ -58,7 +58,7 @@ void	ft_get_clean(char *flags)
             a++;
         }
         if (flags[i] == '.')
-            is_minus--;
+            is_minus = 0;
         i++;
     }
     ft_strcpy(flags, save);
@@ -90,7 +90,7 @@ static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **fla
 	**flag_len += j + 2;
 	flags[j] = '\0';
 	final_flags = ft_star_value(flags, args);
- 	ft_get_clean(final_flags); 
+	ft_get_clean(final_flags);
 	free(flags);
 	return (final_flags);
 }
@@ -170,5 +170,3 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (a);
 }
- 
- 
