@@ -30,7 +30,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
     char *ret;
     char **parsed_flags;
     char    *ptr;
-
+ 
     ret = NULL;
     parsed_flags = ft_flags_parser(flags);
     if (ft_strcmp(convert, "%d") == 0 || ft_strcmp(convert, "%i") == 0)
@@ -42,7 +42,17 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
 	else if (ft_strcmp(convert, "%f") == 0)
 		ret = ft_get_float(flags, args);
     else if (ft_strcmp(convert, "%p") == 0)
-        ret = ft_get_ptr(flags, args, 1);
+    {
+        ptr = ft_get_ptr(flags, args, 1);
+         ft_strlen(flags) > 0 ? ret = ft_get_int(flags, args, parsed_flags, ptr) : 0;
+        if (ret == NULL)
+         {
+             ft_flags_parser_free(parsed_flags);
+             return (ptr);
+         }   
+        else
+            free(ptr);
+    }
     else if (ft_strcmp(convert, "%X") == 0)
     {
         ptr = ft_get_ptr(flags, args, 0);

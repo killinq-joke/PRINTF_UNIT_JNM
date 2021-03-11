@@ -17,7 +17,7 @@ static char		*ft_int_zero(int total_size, int is_zero, long long int nbr, char *
 	char	*start;
 	char	*temp;
 	char	*end;
-	char	*final;
+	char	   *final;
 
 	(total_size > 0 && is_zero != 1) ? total_size++ : 0;
 	(nbr < 0 && total_size == 0 && is_zero != 1) ? total_size ++ : 0;
@@ -118,7 +118,7 @@ char	*ft_get_int(char *flags, va_list args, char **parsed_flags, char *ret)
 	char	*end;
 	
 	itoa = NULL;
-	ret == NULL ? (itoa = ft_long_itoa((long long int)va_arg(args, long long int))) : (itoa = ft_strdup(ret));
+	ret == NULL ? (itoa = ft_long_itoa((long long int)va_arg(args, int))) : (itoa = ft_strdup(ret));
 	if ((ft_strlen(flags)) > 0) 
 	{
 		end = ft_int_flags(parsed_flags, itoa);

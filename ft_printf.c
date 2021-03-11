@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 11:31:39 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 07:00:00 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **fla
 		flags[j] = str[i];
 		j++;
 		i++;
-	}
+	} 
 	**flag_len += j + 2;
 	flags[j] = '\0';
 	final_flags = ft_star_value(flags, args);
@@ -99,12 +99,12 @@ char	*ft_else_management(char c, char *final, int *i)
 	char		save_char[2];
 	
 	save_char[0] = c;
-	save_char[1] = '\0';
+	save_char[1] = '\0'; 
 	final = ft_strjoin(final, save_char);
 	*i += 1; 
 	return (final);
 }
- 
+
 int     ft_printf(const char *str, ...)
 {
     int i;
@@ -118,8 +118,7 @@ int     ft_printf(const char *str, ...)
 	if (!(final = (char *)ft_calloc(sizeof(final), 1)))
 			return (0);
     while (str[i])
-    {
-		
+    { 
    		if (str[i] == '%')
 			ptr = ft_percent_management(args, (char *)str + i, final, &i);
 		else
@@ -130,8 +129,7 @@ int     ft_printf(const char *str, ...)
 		final = (char *)ft_calloc(sizeof(final), ft_strlen(p) + 1);
 		strcpy(final, p);
 		free(p);
-		free(ptr);
-		
+		free(ptr); 
     }
 	a = ft_strlen(final);
 	ft_putstr_fd(final, 1);
@@ -139,3 +137,15 @@ int     ft_printf(const char *str, ...)
 	va_end(args);
     return (a);
 }
+ 
+// int main()
+// {
+// 	// ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
+// 	// printf(" --0*%0*.0x*0 0*%0*.10x*0-- \n", -21, LONG_MAX, 21, LONG_MIN); 
+// 	// printf("%d\n", ft_printf(" %p %p ", LONG_MIN, LONG_MAX));
+// 	// printf("%d\n", printf(" %p %p ", LONG_MIN, LONG_MAX));
+// 	// printf("a %s\n", ft_itoa_pointer(LONG_MIN, "0123456789ABCDEF"));
+// 	ft_printf("a% 3d\n",  12);
+ 
+// 	printf("a% 3d\n",  12);
+// } 

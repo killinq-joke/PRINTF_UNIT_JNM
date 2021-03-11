@@ -32,10 +32,10 @@ char	*ft_get_ptr(char *flags, va_list args, int type)
 	b = ft_get_second_value(flags);
 	a < 0 ? a = -a : a;
 	b < 0 ? b = -b : b;
-	va_arg = va_arg(args, long long int); 
+	va_arg = va_arg(args, int); 
+	 
 	if ((type == 2 || type == 0 || type == 1) && va_arg == 0)
 	{	
-		//end = ft_calloc(sizeof(end), ft_strlen(ptr) + 1);
 		if (type == 2 || type == 0)
 			end = ft_strdup("0");
 		else

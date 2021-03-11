@@ -48,7 +48,8 @@ static long long int	ft_lencheck(long long int n, char *base)
 
 static char	*ft_iteration(char *str, long long int neg, long long int i, char *base)
 {
-	int y;
+	
+	long long int y = 0;
 
 	y = ft_get_min(i);
 	i += 2;
@@ -56,7 +57,9 @@ static char	*ft_iteration(char *str, long long int neg, long long int i, char *b
 	{ 
 		str[i + y] = base[neg % ft_strlen(base)]; 
 		neg = neg / ft_strlen(base);
-		i--; 
+		i--;
+		if (i + y == 1)
+			break;
 	}
 	str[0] = '0';
 	str[1] = 'x';  
@@ -69,10 +72,12 @@ char		*ft_itoa_pointer(long long int n, char *base)
 	long long int			nb;
 	long long int	neg;
 	char			*str;
-	
+	long long int 	a;
+ 
 	nb = (long long int)n;
 	i = ft_lencheck(nb, base) - 1;
-	if (!(str = ft_calloc(sizeof(str), i + 1)))
+	a = ft_get_min(i);
+	if (!(str = ft_calloc(sizeof(str), i + a + 3)))
 		return (NULL);
 	if (nb == 0)
 	{
@@ -89,3 +94,4 @@ char		*ft_itoa_pointer(long long int n, char *base)
 	str = ft_iteration(str, neg, i, base); 
 	return (str);
 }
+
