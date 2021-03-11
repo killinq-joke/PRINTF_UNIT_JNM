@@ -6,13 +6,13 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:31:00 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/06 22:26:20 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 05:53:44 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*ft_int_zero(int total_size, int is_zero, int nbr, char *itoa)
+static char		*ft_int_zero(int total_size, int is_zero, long long int nbr, char *itoa)
 {
 	char	*start;
 	char	*temp;
@@ -39,14 +39,14 @@ char	*ft_int_minus(int total_size, int i, char *itoa, int is_zero, int is_neg)
 {
 	char	*temp;
 	char	*end;
-	int		nbr;
+	long long int		nbr; // Changed to long long int (long atoi for %u)
 	char	*final;
 
-	nbr = ft_atoi(itoa);
+	nbr = ft_long_atoi(itoa); // Changed to long long int (long atoi for %u)
 	if (nbr < 0 && i == 1)
 	{   
-		 final = ft_int_zero(total_size, is_zero, nbr, itoa);
-		 return (final);
+		final = ft_int_zero(total_size, is_zero, nbr, itoa);
+		return (final);
 	}
 	
 	total_size < 0 ? total_size = 0 : total_size;
