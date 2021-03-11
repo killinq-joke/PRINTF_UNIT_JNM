@@ -33,6 +33,38 @@ static char		*ft_get_convert(char *str, char *convert)
 	return (convert);
 } 
 
+void	ft_get_clean(char *flags)
+{
+    int i;
+    int a;
+    int is_minus;
+    char    *save;
+    
+	save = ft_calloc(sizeof(save), ft_strlen(flags) + 1);
+    a = 0;
+    i = 0;
+    is_minus = 0;
+    while (flags[i])
+    {
+        if (flags[i] == '-' && is_minus == 0)
+        {
+            save[a] = flags[i];
+            a++;
+            is_minus++;
+        }
+        else if (flags[i] != '-')
+        {
+            save[a] = flags[i];
+            a++;
+        }
+        if (flags[i] == '.')
+            is_minus--;
+        i++;
+    }
+    ft_strcpy(flags, save);
+	free(save);
+}
+
 static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **flag_len)
 {
 	int i;
@@ -54,10 +86,11 @@ static char		*ft_get_flags(char *str, char *final_flags, va_list args, int **fla
 		flags[j] = str[i];
 		j++;
 		i++;
-	} 
+	}
 	**flag_len += j + 2;
 	flags[j] = '\0';
 	final_flags = ft_star_value(flags, args);
+ 	ft_get_clean(final_flags); 
 	free(flags);
 	return (final_flags);
 }
@@ -138,14 +171,4 @@ int     ft_printf(const char *str, ...)
     return (a);
 }
  
-// int main()
-// {
-// 	// ft_printf(" --0*%0*.0x*0 0*%0*.10x*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
-// 	// printf(" --0*%0*.0x*0 0*%0*.10x*0-- \n", -21, LONG_MAX, 21, LONG_MIN); 
-// 	// printf("%d\n", ft_printf(" %p %p ", LONG_MIN, LONG_MAX));
-// 	// printf("%d\n", printf(" %p %p ", LONG_MIN, LONG_MAX));
-// 	// printf("a %s\n", ft_itoa_pointer(LONG_MIN, "0123456789ABCDEF"));
-// 	ft_printf("a% 3d\n",  12);
  
-// 	printf("a% 3d\n",  12);
-// } 

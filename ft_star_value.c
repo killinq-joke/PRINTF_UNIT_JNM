@@ -63,6 +63,7 @@ char	*ft_star_value(char *str, va_list args)
 		}
 		else
 		{
+			 
 			end[y] = str[i];
 			y++;
 		}
