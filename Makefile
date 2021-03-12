@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/03/11 06:45:48 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/12 10:21:27 by trofidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,8 @@ $(NAME): $(OBJ)
 				$(CC) -I. -o $@ -c $? $(CFLAGS)
 
 all: $(NAME)
+
+bonus : $(NAME)
 
 clean:
 				$(RM) $(OBJ)

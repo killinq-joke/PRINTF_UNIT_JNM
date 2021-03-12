@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:23:15 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 10:38:18 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/12 09:18:10 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char    *ft_get_content(char *flags, char *convert, va_list args, int a)
          {
              ft_flags_parser_free(parsed_flags);
              return (ptr);
-         }   
+         }
         else
             free(ptr);
     }

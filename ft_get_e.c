@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 01:44:01 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/09 13:05:31 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/12 10:18:56 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static long long int	ft_get_pow(long double nbr, int *is_pos)
 	}
 	while (--count > 0)
 			result = result * 10; 
+	if (nbr < 1)
+		result = result / 10;
 	return (result);
 }
 
@@ -45,7 +47,6 @@ static char		*ft_get_last(long long int pow, int is_pos)
 	char *str;
 	char *itoa;
 
-	i = 1;
 	if (!(str = ft_calloc(sizeof(str), 4)))
 		return (NULL);
 	str[0] = 'e';
@@ -54,18 +55,23 @@ static char		*ft_get_last(long long int pow, int is_pos)
 	else
 		str[1] = '+';
 	str[2] = '0';
-	itoa = ft_long_itoa(pow);
-	while (itoa[i] == '0')
-		i++;
+	if (str[1] == '-')
+		itoa = ft_long_itoa(pow / 10);
+	else
+		itoa = ft_long_itoa(pow);
+	i = (int)ft_strlen(itoa) - 1;
+	if (str[1] == '-')
+		i = (int)ft_strlen(itoa);
 	free(itoa);
 	itoa = ft_itoa(i);
 	if (i > 9)
 	{
 		str[2] = '1';
-		str[3] = itoa[1] - 1;
+		str[3] = itoa[1] + (i % 10);
+		printf("%d\n", itoa[1]);
 	}
 	else
-		str[3] = '0' + i - 1;
+		str[3] = '0' + i;
 	free (itoa);
 	return (str);
 }
@@ -86,8 +92,7 @@ static double ft_get_round(double nbr)
 		nbr *= 10;
 	if ((int)nbr % 10 >= 5)
 	{
-		nbr /= 10;
-		nbr += 1;
+		nbr = (nbr / 10) + 1;
 	} 
 	while (count > 0 && count--) 
 		nbr /= 10;
@@ -111,7 +116,10 @@ char			*ft_get_it_done(double nbr)
 		nbr = nbr / pow;
 	else 
 		nbr = nbr * pow;
-	final = ft_putnbr_float(nbr);
+	if (nbr < 1 && nbr > -1)
+		final = ft_putnbr_float(nbr * 10);
+	else
+		final = ft_putnbr_float(nbr);
 	final = ft_strcat(final, end);
 	free (end);
 	return (final);
