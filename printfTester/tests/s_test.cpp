@@ -28,8 +28,8 @@ int main(int ac, char ** av)
 	testName = av[0];
 	if (ac != 1)
 		printTestNumber(av[1], TEST_LIMIT);
-	cout << endl;
-	TEST(1, print("%s", ""));
+	cout << endl; 		
+	TEST(1, print("neg8 %*.*s\n", -1586, 15, "coucou"));
 	TEST(2, print("%s", "0"));
 	TEST(3, print("%s %s", "", ""));
 	TEST(4, print("%s %s", "0", "1"));

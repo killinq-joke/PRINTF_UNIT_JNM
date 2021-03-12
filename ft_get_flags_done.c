@@ -69,11 +69,9 @@ static char     *ft_is_one_value(char *flags, char *end)
         if (i < 0)
             i = -i;
         ft_strcpy(str, end);
-        ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end));
-        ft_strclr(end);
-        end = ft_strcat(end, str);
-        free (ptr); //------
-        return (end);
+        ft_memset(str + (int)ft_strlen(end), ' ', i - ft_strlen(end)); 
+        free (end);
+        return (str);
     }
     free (ptr);
     return (end);

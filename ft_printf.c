@@ -6,13 +6,13 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/12 10:34:36 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/11 07:00:00 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <limits.h>
-
+ 
 static char		*ft_get_convert(char *str, char *convert)
 {
 	int i;
@@ -111,8 +111,6 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i)
     static char *content; /* toto, 18 */
  
 	int a;
- 
-	
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
 	convert = ft_get_convert((char *)str, convert);

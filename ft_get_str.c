@@ -14,12 +14,11 @@
 
 char            *ft_get_str(char *flags, va_list args)
 {
-    char *end;
-    char *ptr;
+    char *end; 
     char *va_arg;
     int a;
     int b;
-
+  
     b = 0;
     if (strchr(flags, '.') != NULL)
     {
@@ -31,14 +30,12 @@ char            *ft_get_str(char *flags, va_list args)
     va_arg = va_arg(args, char *);
     if (va_arg == NULL && (((a >= 6 || a == 0) || a < 0) || b == 0))
     {
-        end = ft_calloc(sizeof(end), 7);
-        ptr = end;
-        end = ft_strjoin(end, "(null)");
-        free (ptr);
+        end = ft_calloc(sizeof(end), 7); 
+        end = ft_strcpy(end, "(null)"); 
     }
     else if (va_arg == NULL && a < 6)
     {
-        end = strdup("");
+        end = ft_strdup("");
     }
     else
     {
@@ -46,6 +43,6 @@ char            *ft_get_str(char *flags, va_list args)
             return (NULL);
         ft_strcpy(end, va_arg);
     }
-    end = ft_index(end, flags);
+    end = ft_index(end, flags); 
     return (end);
 }
