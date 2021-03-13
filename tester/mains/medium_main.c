@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 11:29:27 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/13 11:34:22 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/13 14:58:04 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <fcntl.h>
 #include <limits.h>
 
-int				ft_printf(const char *str, ...);
+int				ft_function(const char *str, ...);
 
 #define tofunction(x, ...) function("%s\n", x, a, b)
 int main()
@@ -28,43 +28,43 @@ int main()
 	//////////
 	// CHAR //
 	//////////
-	char ceasy1 = 'T';
-	char ceasy2 = 'o';
-	char ceasy3 = '4';
-	char ceasy4 = '2';
-	char ceasy5 = 48;
+	char cmedium1 = 48;
+	char cmedium2 = '0';
+	char cmedium3 = 49;
+	char cmedium4 = 120;
+	char cmedium5 = 'b';
 	/////////////
 	// STRINGS //
 	/////////////
-	char *seasy1 = "I am a little sneaky boy";
-	char *seasy2 = "Yo0";
-	char *seasy3 = "I am a really long and really annoying line, do you like what you see ? ";
-	char *seasy4 = "Et la il me dit, je ne viens pas, ah non non je ne viens pas, je vais faire gitteur";
-	char *seasy5 = "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET salut a tous les amiiiiiiis c'est David lafarge pokemon, aujourd'hui booster de carte pokemon !";
+	char *smedium1 = "I am a little sneaky boy";
+	char *smedium2 = "Yo0";
+	char *smedium3 = "I am a really long and really annoying line, do you like what you see ? ";
+	char *smedium4 = "Et la il me dit, je ne viens pas, ah non non je ne viens pas, je vais faire gitteur";
+	char *smedium5 = "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET salut a tous les amiiiiiiis c'est David lafarge pokemon, aujourd'hui booster de carte pokemon !";
 	//////////
 	// PTRP //
 	//////////
-	int peasy1 = 0;
-	int peasy2 = 19;
-	int peasy3 = 15489;
-	int peasy4 = -19;
-	int peasy5 = -0;
+	int pmedium1 = 0;
+	int pmedium2 = 19;
+	int pmedium3 = 15489;
+	int pmedium4 = -19;
+	int pmedium5 = -0;
 	/////////////////////////////
 	// INT D || INT I || INT U //
 	/////////////////////////////
-	int deasy1 = 0;
-	int deasy2 = 19;
-	int deasy3 = 15489;
-	int deasy4 = -19;
-	int deasy5 = -0;
+	int dmedium1 = 0;
+	int dmedium2 = 19;
+	int dmedium3 = 15489;
+	int dmedium4 = -19;
+	int dmedium5 = -0;
 	////////////////////
 	// INT X || INT x //
 	////////////////////
-	int xeasy1 = 0;
-	int xeasy2 = 19;
-	int xeasy3 = 15489;
-	int xeasy4 = -19;
-	int xeasy5 = -0;
+	int xmedium1 = 0;
+	int xmedium2 = 19;
+	int xmedium3 = 15489;
+	int xmedium4 = -19;
+	int xmedium5 = -0;
 
 /*
  _   __       
@@ -82,72 +82,72 @@ int main()
 	function("4\n"); //4
 	function("2\n"); //5
 	// 6 - 10 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%c\n", cmedium2); 
+	function("%c\n", cmedium3); 
+	function("%c\n", cmedium4);
+	function("%c\n", cmedium5);
+	function("%c\n", cmedium1);
 	// 11 - 15 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%c Youssef\n", cmedium2);
+	function("%c a 0123456a\n", cmedium3);
+	function("%c Hi !\n", cmedium4);
+	function("aaaaa %c aaaaaaa\n", cmedium5);
+	function("%c 	l'erreur !\n", cmedium1);
 	// 16 - 20 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16c\n", cmedium2);
+	function("%32c\n", cmedium3);
+	function("%56c\n", cmedium4);
+	function("%165c\n", cmedium5);
+	function("%c %c\n", cmedium1, 'u');
 	// 21 - 25 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%c %c\n", cmedium2, 'a');
+	function("o%c %c\n", cmedium3, '4');
+	function("t%c %c\n", cmedium4, '2');
+	function("o%c %c\n", cmedium5, '!');
+	function("!%10c, %c\n", cmedium1, cmedium2);
 	// 26 - 30 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%12c, %c:D\n", cmedium2, cmedium3);
+	function("a%65c, %c:O\n", cmedium3, cmedium4);
+	function("b%98c, %cD:\n", cmedium4, cmedium5);
+	function("a%1c, %c:>\n", cmedium5, cmedium5);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*c\n", 16, cmedium1); //1
+	function("%*cT\n", 0, cmedium2); //2
+	function("%*c\n", 10, cmedium3); //3
+	function("%*c\n", -12, cmedium5); //4
+	function("%c %*c\n", cmedium5, 12, cmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95c\n", cmedium2); 
+	function("%-16c\n", cmedium3); 
+	function("%-32c\n", cmedium4);
+	function("%32c\n", cmedium5);
+	function("%*c\n", 15, cmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*c Youssef\n", 65, cmedium2);
+	function("%*c a 0123456a\n", 1, cmedium3);
+	function("%*c Hi !\n", 62, cmedium4);
+	function("aaaaa %*c aaaaaaa\n", 16, cmedium5);
+	function("%*c 	l'erreur !\n", 1, cmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16c\n", cmedium2);
+	function("%32c\n", cmedium3);
+	function("%1c\n", cmedium4);
+	function("%16c\n", cmedium5);
+	function("%32c %12c\n", cmedium1, 'u');
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*c %*c\n", 32, 56, 49, cmedium5);
+	function("o%*c %*c\n", 1, 59, 20, 65);
+	function("t%1c %*c\n", 33, 76, 120);
+	function("o%*c %20c\n", 1, 80, 76);
+	function("!%10c, %*c\n", 39, 60, cmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%12c, %20c:D\n", cmedium2, cmedium3);
+	function("a%35c, %c:O\n", cmedium3, cmedium4);
+	function("b%23c, %30cD:\n", cmedium4, cmedium5);
+	function("a%31c, %*c:>\n", cmedium5, 20, cmedium5);
 /*
  _   __      
 (_) / /      
@@ -155,82 +155,81 @@ int main()
   / /   / __|
  / / _  \__ \
 /_/ (_) |___/
-
 */
 	// 1 - 5 //
 	function("Hi\n");
 	function("  My name\n");
 	function(" is \n");
 	function("  Thomas \n");
-	function("%s\n", seasy1);
+	function("%s\n", smedium1);
 	// 5 - 10 //
-	function("%s\n", seasy2);
-	function("%s\n", seasy3);
-	function("%s\n", seasy4);
-	function("%s\n", seasy5);
-	function("%s Hi i am\n", seasy1);
+	function("%s\n", smedium2);
+	function("%s\n", smedium3);
+	function("%s\n", smedium4);
+	function("%s\n", smedium5);
+	function("%s Hi i am\n", smedium1);
 	// 10 - 15 //
-	function("%s Youssef\n", seasy2);
-	function("%s a 0123456a\n", seasy3);
-	function("%s Hi !\n", seasy4);
-	function("aaaaa %s aaaaaaa\n", seasy5);
-	function("%5s\n", seasy1);
+	function("%s Youssef\n", smedium2);
+	function("%s a 0123456a\n", smedium3);
+	function("%s Hi !\n", smedium4);
+	function("aaaaa %s aaaaaaa\n", smedium5);
+	function("%5s\n", smedium1);
 	// 15 - 20 //
-	function("%16s\n", seasy2);
-	function("%32s\n", seasy3);
-	function("%56s\n", seasy4);
-	function("%165s\n", seasy5);
-	function("%s %s\n", seasy1, "seasy2");
+	function("%16s\n", smedium2);
+	function("%32s\n", smedium3);
+	function("%56s\n", smedium4);
+	function("%165s\n", smedium5);
+	function("%s %s\n", smedium1, "smedium2");
 	// 20 - 25 //
-	function("%s %s\n", seasy2, "seasy3");
-	function("%s %s\n", seasy3, "seasy4");
-	function("%s %s\n", seasy4, "seasy5");
-	function("%s %s\n", seasy5, "seasy5");
-	function("%10s, %s\n", seasy1, seasy2);
+	function("%s %s\n", smedium2, "smedium3");
+	function("%s %s\n", smedium3, "smedium4");
+	function("%s %s\n", smedium4, "smedium5");
+	function("%s %s\n", smedium5, "smedium5");
+	function("%10s, %s\n", smedium1, smedium2);
 	// 25 - 30 //
-	function("%12s, %s\n", seasy2, seasy3);
-	function("%65s, %s\n", seasy3, seasy4);
-	function("%98s, %s\n", seasy4, seasy5);
-	function("%1s, %s\n", seasy5, seasy5);
-	function("%15s, %s\n", seasy5, seasy5);
+	function("%12s, %s\n", smedium2, smedium3);
+	function("%65s, %s\n", smedium3, smedium4);
+	function("%98s, %s\n", smedium4, smedium5);
+	function("%1s, %s\n", smedium5, smedium5);
+	function("%15s, %s\n", smedium5, smedium5);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*s\n", -16, smedium1); //1
+	function("%*sT\n", -0, smedium2); //2
+	function("%*s\n", 10, smedium3); //3
+	function("%*s\n", -12, smedium5); //4
+	function("%s %*s\n", smedium5, 12, smedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95s\n", smedium2); 
+	function("%-16s\n", smedium3); 
+	function("%-32s\n", smedium4);
+	function("%32s\n", smedium5);
+	function("%*s\n", 15, smedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*s Youssef\n", 65, smedium2);
+	function("%*s a 0123456a\n", -1, smedium3);
+	function("%*s Hi !\n", 62, smedium4);
+	function("aaaaa %*s aaaaaaa\n", 16, smedium5);
+	function("%*s 	l'erreur !\n", 1, smedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16s\n", smedium2);
+	function("%32s\n", smedium3);
+	function("%1s\n", smedium4);
+	function("%16s\n", smedium5);
+	function("%32s %12s\n", smedium1, "je suis un petit string :>");
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*s %*s\n", -32, smedium1, 49, smedium5);
+	function("o%*s %*s\n", -1, smedium3, 20, smedium2);
+	function("t%1s %*s\n", smedium2, 76, smedium4);
+	function("o%*s %20s\n", -1, smedium1, smedium3);
+	function("!%10s, %*s\n", smedium5, 60, smedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%12s, %20s:D\n", smedium2, smedium3);
+	function("a%35s, %s:O\n", smedium3, smedium4);
+	function("b%23s, %30sD:\n", smedium4, smedium5);
+	function("a%31s, %*s:>\n", smedium5, 20, smedium5);
 /*
   _   __        
  (_) / /        
@@ -246,75 +245,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", peasy1);
+	function("0\n", pmedium1);
 	// 5 - 10 //
-	function("%p\n", peasy2);
-	function("%p\n", peasy3);
-	function("%p\n", peasy4);
-	function("%p\n", peasy5);
-	function("%p Hi i am\n", peasy1);
+	function("%p\n", pmedium2);
+	function("%p\n", pmedium3);
+	function("%p\n", pmedium4);
+	function("%p\n", pmedium5);
+	function("%p Hi i am\n", pmedium1);
 	// 10 - 15 //
-	function("%p Youssef\n", peasy2);
-	function("%p a 0123456a\n", peasy3);
-	function("%p Hi !\n", peasy4);
-	function("aaaaa %p aaaaaaa\n", peasy5);
-	function("%ps\n", peasy1);
+	function("%p Youssef\n", pmedium2);
+	function("%p a 0123456a\n", pmedium3);
+	function("%p Hi !\n", pmedium4);
+	function("aaaaa %p aaaaaaa\n", pmedium5);
+	function("%ps\n", pmedium1);
 	// 15 - 20 //
-	function("%16p\n", peasy2);
-	function("%32p\n", peasy3);
-	function("%56p\n", peasy4);
-	function("%165p\n", peasy5);
-	function("%p %p\n", peasy1, peasy1);
+	function("%16p\n", pmedium2);
+	function("%32p\n", pmedium3);
+	function("%56p\n", pmedium4);
+	function("%165p\n", pmedium5);
+	function("%p %p\n", pmedium1, pmedium1);
 	// 20 - 25 //
-	function("%p %p\n", peasy2, peasy2);
-	function("%p %p\n", peasy3, peasy2);
-	function("%p %p\n", peasy4, peasy2);
-	function("%p %p\n", peasy5, peasy2);
-	function("%10d, %p\n", peasy1, peasy2);
+	function("%p %p\n", pmedium2, pmedium2);
+	function("%p %p\n", pmedium3, pmedium2);
+	function("%p %p\n", pmedium4, pmedium2);
+	function("%p %p\n", pmedium5, pmedium2);
+	function("%10d, %p\n", pmedium1, pmedium2);
 	// 25 - 30 //
-	function("%12p, %p\n", peasy2, peasy3);
-	function("%65p, %p\n", peasy3, peasy4);
-	function("%98p, %p\n", peasy4, peasy5);
-	function("%1p, %p\n", peasy5, peasy5);
-	function("%15p, %p\n", peasy5, peasy5);
+	function("%12p, %p\n", pmedium2, pmedium3);
+	function("%65p, %p\n", pmedium3, pmedium4);
+	function("%98p, %p\n", pmedium4, pmedium5);
+	function("%1p, %p\n", pmedium5, pmedium5);
+	function("%15p, %p\n", pmedium5, pmedium5);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*p\n", -16, pmedium1); //1
+	function("%*pT\n", -0, pmedium2); //2
+	function("%*p\n", 10, pmedium3); //3
+	function("%*p\n", -12, pmedium5); //4
+	function("%p %*p\n", pmedium5, 12, pmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95p\n", pmedium2); 
+	function("%-16p\n", pmedium3); 
+	function("%-32p\n", pmedium4);
+	function("%32p\n", pmedium5);
+	function("%*p\n", 15, pmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*p Youssef\n", 65, pmedium2);
+	function("%*p a 0123456a\n", -1, pmedium3);
+	function("%*p Hi !\n", 62, pmedium4);
+	function("aaaaa %*p aaaaaaa\n", 16, pmedium5);
+	function("%*p 	l'erreur !\n", 1, pmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16p\n", pmedium2);
+	function("%32p\n", pmedium3);
+	function("%1p\n", pmedium4);
+	function("%16p\n", pmedium5);
+	function("%32p %12p\n", pmedium1, pmedium3);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*p %*p\n", -32, pmedium1, 49, pmedium5);
+	function("o%*p %*p\n", -1, pmedium3, 20, pmedium2);
+	function("t%1p %*p\n", pmedium2, 76, pmedium4);
+	function("o%*p %20p\n", -1, pmedium1, pmedium3);
+	function("!%10p, %*p\n", pmedium5, 60, pmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%12p, %20p:D\n", pmedium2, pmedium3);
+	function("a%35p, %p:O\n", pmedium3, pmedium4);
+	function("b%23p, %30pD:\n", pmedium4, pmedium5);
+	function("a%31p, %*p:>\n", pmedium5, 20, pmedium5);
 /*
   _   __      _ 
  (_) / /     | |
@@ -328,75 +327,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", deasy1);
+	function("0\n", INT_MIN);
 	// 5 - 10 //
-	function("%d\n", deasy2);
-	function("%d\n", deasy3);
-	function("%d\n", deasy4);
-	function("%d\n", deasy5);
-	function("%d Hi i am\n", deasy1);
+	function("%d\n", dmedium2);
+	function("%d\n", dmedium3);
+	function("%d\n", dmedium4);
+	function("%d\n", INT_MAX);
+	function("%d Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%d Youssef\n", deasy2);
-	function("%d a 0123456a\n", deasy3);
-	function("%d Hi !\n", deasy4);
-	function("aaaaa %d aaaaaaa\n", deasy5);
-	function("%ds\n", deasy1);
+	function("%d Youssef\n", dmedium2);
+	function("%d a 0123456a\n", dmedium3);
+	function("%d Hi !\n", dmedium4);
+	function("aaaaa %d aaaaaaa\n", dmedium5);
+	function("%ds\n", INT_MAX);
 	// 15 - 20 //
-	function("%16d\n", deasy2);
-	function("%32d\n", deasy3);
-	function("%56d\n", deasy4);
-	function("%165d\n", deasy5);
-	function("%d %d\n", deasy1, 1659);
+	function("%16d\n", dmedium2);
+	function("%32d\n", INT_MIN);
+	function("%56d\n", dmedium4);
+	function("%165d\n", CHAR_MIN);
+	function("%d %d\n", dmedium1, 1659);
 	// 20 - 25 //
-	function("%d %d\n", deasy2, -1825);
-	function("%d %d\n", deasy3, -165);
-	function("%d %d\n", deasy4, 165);
-	function("%d %d\n", deasy5, 75);
-	function("%10d, %d\n", deasy1, deasy2);
+	function("%d %d\n", dmedium2, -1825);
+	function("%d %d\n", CHAR_MAX, -165);
+	function("%d %d\n", dmedium4, 165);
+	function("%d %d\n", dmedium5, 75);
+	function("%10d, %d\n", INT_MAX, dmedium2);
 	// 25 - 30 //
-	function("%12d, %d\n", deasy2, deasy3);
-	function("%65d, %d\n", deasy3, deasy4);
-	function("%98d, %d\n", deasy4, deasy5);
-	function("%1d, %d\n", deasy5, deasy5);
-	function("%15d, %d\n", deasy5, deasy5);
+	function("%12d, %d\n", dmedium2, INT_MIN);
+	function("%65d, %d\n", dmedium3, dmedium4);
+	function("%98d, %d\n", INT_MAX, dmedium5);
+	function("%1d, %d\n", dmedium5, dmedium5);
+	function("%15d, %d\n", dmedium5, INT_MAX);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*d\n", 16, dmedium1); //1
+	function("%*dT\n", 0, CHAR_MAX); //2
+	function("%*d\n", 10, dmedium3); //3
+	function("%*d\n", -12, INT_MAX); //4
+	function("%d %*d\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95d\n", dmedium2); 
+	function("%-16d\n", INT_MIN); 
+	function("%-32d\n", dmedium4);
+	function("%32d\n", dmedium5);
+	function("%*d\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*d Youssef\n", -65,dmedium2);
+	function("%*d a 0123456a\n", -0, INT_MAX);
+	function("%*d Hi !\n", 62,dmedium4);
+	function("aaaaa %*d aaaaaaa\n", 0, INT_MAX);
+	function("%*d 	l'erreur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16d\n", dmedium2);
+	function("%32d\n", INT_MIN);
+	function("%0d\n", dmedium4);
+	function("%16d\n", dmedium5);
+	function("%32d %12d\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*d %*d\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%*d %*d\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0d %*d\n", dmedium1, -20, INT_MAX);
+	function("o%*d %-20d\n", 0, dmedium1, dmedium3);
+	function("!%10d, %*d\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%-12d, %-20d:D\n", INT_MAX, dmedium3);
+	function("a%65d, %d:O\n", dmedium3, dmedium4);
+	function("b%98d, %-30dD:\n", dmedium4, CHAR_MIN);
+	function("a%31d, %*d:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __  _ 
  (_) / / (_)
@@ -410,75 +409,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", deasy1);
+	function("0\n", INT_MIN);
 	// 5 - 10 //
-	function("%i\n", deasy2);
-	function("%i\n", deasy3);
-	function("%i\n", deasy4);
-	function("%i\n", deasy5);
-	function("%i Hi i am\n", deasy1);
+	function("%i\n", dmedium2);
+	function("%i\n", dmedium3);
+	function("%i\n", dmedium4);
+	function("%i\n", INT_MAX);
+	function("%i Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%i Youssef\n", deasy2);
-	function("%i a 0123456a\n", deasy3);
-	function("%i Hi !\n", deasy4);
-	function("aaaaa %i aaaaaaa\n", deasy5);
-	function("%is\n", deasy1);
+	function("%i Youssef\n", dmedium2);
+	function("%i a 0123456a\n", dmedium3);
+	function("%i Hi !\n", dmedium4);
+	function("aaaaa %i aaaaaaa\n", dmedium5);
+	function("%is\n", INT_MAX);
 	// 15 - 20 //
-	function("%16i\n", deasy2);
-	function("%32i\n", deasy3);
-	function("%56i\n", deasy4);
-	function("%165i\n", deasy5);
-	function("%i %i\n", deasy1, 1659);
+	function("%16i\n", dmedium2);
+	function("%32i\n", INT_MIN);
+	function("%56i\n", dmedium4);
+	function("%165i\n", CHAR_MIN);
+	function("%i %i\n", dmedium1, 1659);
 	// 20 - 25 //
-	function("%i %i\n", deasy2, -1825);
-	function("%i %i\n", deasy3, -165);
-	function("%i %i\n", deasy4, 165);
-	function("%i %i\n", deasy5, 75);
-	function("%10i, %i\n", deasy1, deasy2);
+	function("%i %i\n", dmedium2, -1825);
+	function("%i %i\n", CHAR_MAX, -165);
+	function("%i %i\n", dmedium4, 165);
+	function("%i %i\n", dmedium5, 75);
+	function("%10i, %i\n", INT_MAX, dmedium2);
 	// 25 - 30 //
-	function("%12i, %i\n", deasy2, deasy3);
-	function("%65i, %i\n", deasy3, deasy4);
-	function("%98i, %i\n", deasy4, deasy5);
-	function("%1i, %i\n", deasy5, deasy5);
-	function("%15i, %i\n", deasy5, deasy5);
+	function("%12i, %i\n", dmedium2, INT_MIN);
+	function("%65i, %i\n", dmedium3, dmedium4);
+	function("%98i, %i\n", INT_MAX, dmedium5);
+	function("%1i, %i\n", dmedium5, dmedium5);
+	function("%15i, %i\n", dmedium5, INT_MAX);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*i\n", 16, dmedium1); //1
+	function("%*iT\n", 0, CHAR_MAX); //2
+	function("%*i\n", 10, dmedium3); //3
+	function("%*i\n", -12, INT_MAX); //4
+	function("%i %*i\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95i\n", dmedium2); 
+	function("%-16i\n", INT_MIN); 
+	function("%-32i\n", dmedium4);
+	function("%32i\n", dmedium5);
+	function("%*i\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*i Youssef\n", -65,dmedium2);
+	function("%*i a 0123456a\n", -0, INT_MAX);
+	function("%*i Hi !\n", 62,dmedium4);
+	function("aaaaa %*i aaaaaaa\n", 0, INT_MAX);
+	function("%*i 	l'erreur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16i\n", dmedium2);
+	function("%32i\n", INT_MIN);
+	function("%0i\n", dmedium4);
+	function("%16i\n", dmedium5);
+	function("%32i %12i\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*i %*i\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%*i %*i\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0i %*i\n", dmedium1, -20, INT_MAX);
+	function("o%*i %-20i\n", 0, dmedium1, dmedium3);
+	function("!%10i, %*i\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%-12i, %-20i:D\n", INT_MAX, dmedium3);
+	function("a%65i, %i:O\n", dmedium3, dmedium4);
+	function("b%98i, %-30iD:\n", dmedium4, CHAR_MIN);
+	function("a%31i, %*i:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __        
  (_) / /        
@@ -492,75 +491,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", deasy1);
+	function("0\n", INT_MIN);
 	// 5 - 10 //
-	function("%u\n", deasy2);
-	function("%u\n", deasy3);
-	function("%u\n", deasy4);
-	function("%u\n", deasy5);
-	function("%u Hi i am\n", deasy1);
+	function("%u\n", dmedium2);
+	function("%u\n", dmedium3);
+	function("%u\n", dmedium4);
+	function("%u\n", INT_MAX);
+	function("%u Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%u Youssef\n", deasy2);
-	function("%u a 0123456a\n", deasy3);
-	function("%u Hi !\n", deasy4);
-	function("aaaaa %u aaaaaaa\n", deasy5);
-	function("%us\n", deasy1);
+	function("%u Youssef\n", dmedium2);
+	function("%u a 0123456a\n", dmedium3);
+	function("%u Hi !\n", dmedium4);
+	function("aaaaa %u aaaaaaa\n", dmedium5);
+	function("%us\n", INT_MAX);
 	// 15 - 20 //
-	function("%16u\n", deasy2);
-	function("%32u\n", deasy3);
-	function("%56u\n", deasy4);
-	function("%165u\n", deasy5);
-	function("%u %u\n", deasy1, 1659);
+	function("%16u\n", dmedium2);
+	function("%32u\n", INT_MIN);
+	function("%56u\n", dmedium4);
+	function("%165u\n", CHAR_MIN);
+	function("%u %u\n", dmedium1, 1659);
 	// 20 - 25 //
-	function("%u %u\n", deasy2, -1825);
-	function("%u %u\n", deasy3, -165);
-	function("%u %u\n", deasy4, 165);
-	function("%u %u\n", deasy5, 75);
-	function("%10u, %u\n", deasy1, deasy2);
+	function("%u %u\n", dmedium2, -1825);
+	function("%u %u\n", CHAR_MAX, -165);
+	function("%u %u\n", dmedium4, 165);
+	function("%u %u\n", dmedium5, 75);
+	function("%10u, %u\n", INT_MAX, dmedium2);
 	// 25 - 30 //
-	function("%12u, %u\n", deasy2, deasy3);
-	function("%65u, %u\n", deasy3, deasy4);
-	function("%98u, %u\n", deasy4, deasy5);
-	function("%1u, %u\n", deasy5, deasy5);
-	function("%15u, %u\n", deasy5, deasy5);
+	function("%12u, %u\n", dmedium2, INT_MIN);
+	function("%65u, %u\n", dmedium3, dmedium4);
+	function("%98u, %u\n", INT_MAX, dmedium5);
+	function("%1u, %u\n", dmedium5, dmedium5);
+	function("%15u, %u\n", dmedium5, INT_MAX);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*u\n", 16, dmedium1); //1
+	function("%*uT\n", 0, CHAR_MAX); //2
+	function("%*u\n", 10, dmedium3); //3
+	function("%*u\n", -12, INT_MAX); //4
+	function("%u %*u\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95u\n", dmedium2); 
+	function("%-16u\n", INT_MIN); 
+	function("%-32u\n", dmedium4);
+	function("%32u\n", dmedium5);
+	function("%*u\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*u Youssef\n", -65,dmedium2);
+	function("%*u a 0123456a\n", -0, INT_MAX);
+	function("%*u Hi !\n", 62,dmedium4);
+	function("aaaaa %*u aaaaaaa\n", 0, INT_MAX);
+	function("%*u 	l'erreur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16u\n", dmedium2);
+	function("%32u\n", INT_MIN);
+	function("%0u\n", dmedium4);
+	function("%16u\n", dmedium5);
+	function("%32u %12u\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*u %*u\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%*u %*u\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0u %*u\n", dmedium1, -20, INT_MAX);
+	function("o%*u %-20u\n", 0, dmedium1, dmedium3);
+	function("!%10u, %*u\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("b%-12u, %-20u:D\n", INT_MAX, dmedium3);
+	function("a%65u, %u:O\n", dmedium3, dmedium4);
+	function("b%98u, %-30uD:\n", dmedium4, CHAR_MIN);
+	function("a%31u, %*u:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __                   _       
  (_) / /                  (_)      
@@ -574,75 +573,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", xeasy1);
+	function("0\n", INT_MIN);
 	// 5 - 10 //
-	function("%x\n", xeasy2);
-	function("%x\n", xeasy3);
-	function("%x\n", xeasy4);
-	function("%x\n", xeasy5);
-	function("%x Hi i am\n", xeasy1);
+	function("%x\n", dmedium2);
+	function("%x\n", dmedium3);
+	function("%x\n", dmedium4);
+	function("%x\n", INT_MAX);
+	function("%x Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%x Youssef\n", xeasy2);
-	function("%x a 0123456a\n", xeasy3);
-	function("%x Hi !\n", xeasy4);
-	function("aaaaa %x aaaaaaa\n", xeasy5);
-	function("%xs\n", xeasy1);
+	function("%x Youssef\n", dmedium2);
+	function("%x a 0123456a\n", dmedium3);
+	function("%x Hi !\n", dmedium4);
+	function("aaaaa %x aaaaaaa\n", dmedium5);
+	function("%xs\n", INT_MAX);
 	// 15 - 20 //
-	function("%16x\n", xeasy2);
-	function("%32x\n", xeasy3);
-	function("%56x\n", xeasy4);
-	function("%165x\n", xeasy5);
-	function("%x %x\n", xeasy1, 1659);
+	function("%16x\n", dmedium2);
+	function("%32x\n", INT_MIN);
+	function("%56x\n", dmedium4);
+	function("%165x\n", CHAR_MIN);
+	function("%x %x\n", dmedium1, 1659);
 	// 20 - 25 //
-	function("%x %x\n", xeasy2, -1825);
-	function("%x %x\n", xeasy3, -165);
-	function("%x %x\n", xeasy4, 165);
-	function("%x %x\n", xeasy5, 75);
-	function("%10x, %x\n", xeasy1, xeasy2);
+	function("%x %x\n", dmedium2, -1825);
+	function("%x %x\n", CHAR_MAX, -165);
+	function("%x %x\n", dmedium4, 165);
+	function("%x %x\n", dmedium5, 75);
+	function("%10x, %x\n", INT_MAX, dmedium2);
 	// 25 - 30 //
-	function("%12x, %x\n", xeasy2, xeasy3);
-	function("%65x, %x\n", xeasy3, xeasy4);
-	function("%98x, %x\n", xeasy4, xeasy5);
-	function("%1x, %x\n", xeasy5, xeasy5);
-	function("%15x, %x\n", xeasy5, xeasy5);  
+	function("%12x, %x\n", dmedium2, INT_MIN);
+	function("%65x, %x\n", dmedium3, dmedium4);
+	function("%98x, %x\n", INT_MAX, dmedium5);
+	function("%1x, %x\n", dmedium5, dmedium5);
+	function("%15x, %x\n", dmedium5, INT_MAX);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*x\n", 16, dmedium1); //1
+	function("%*xT\n", 0, CHAR_MAX); //2
+	function("%*x\n", 10, dmedium3); //3
+	function("%*x\n", -12, INT_MAX); //4
+	function("%x %*x\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95x\n", dmedium2); 
+	function("%-16x\n", INT_MIN); 
+	function("%-32x\n", dmedium4);
+	function("%32x\n", dmedium5);
+	function("%*x\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*x Youssef\n", -65,dmedium2);
+	function("%*x a 0123456a\n", -0, INT_MAX);
+	function("%*x Hi !\n", 62,dmedium4);
+	function("aaaaa %*x aaaaaaa\n", 0, INT_MAX);
+	function("%*x 	l'erreur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16x\n", dmedium2);
+	function("%32x\n", INT_MIN);
+	function("%0x\n", dmedium4);
+	function("%16x\n", dmedium5);
+	function("%32x %12x\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*x %*x\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%*x %*x\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0x %*x\n", dmedium1, -20, INT_MAX);
+	function("o%*x %-20x\n", 0, dmedium1, dmedium3);
+	function("!%10x, %*x\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);    
+	function("b%-12x, %-20x:D\n", INT_MAX, dmedium3);
+	function("a%65x, %x:O\n", dmedium3, dmedium4);
+	function("b%98x, %-30xD:\n", dmedium4, CHAR_MIN);
+	function("a%31x, %*x:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __ __   __
  (_) / / \ \ / /
@@ -656,75 +655,75 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", xeasy1);
+	function("0\n", INT_MIN);
 	// 5 - 10 //
-	function("%X\n", xeasy2);
-	function("%X\n", xeasy3);
-	function("%X\n", xeasy4);
-	function("%X\n", xeasy5);
-	function("%X Hi i am\n", xeasy1);
+	function("%X\n", dmedium2);
+	function("%X\n", dmedium3);
+	function("%X\n", dmedium4);
+	function("%X\n", INT_MAX);
+	function("%X Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%X Youssef\n", xeasy2);
-	function("%X a 0123456a\n", xeasy3);
-	function("%X Hi !\n", xeasy4);
-	function("aaaaa %X aaaaaaa\n", xeasy5);
-	function("%Xs\n", xeasy1);
+	function("%X Youssef\n", dmedium2);
+	function("%X a 0123456a\n", dmedium3);
+	function("%X Hi !\n", dmedium4);
+	function("aaaaa %X aaaaaaa\n", dmedium5);
+	function("%Xs\n", INT_MAX);
 	// 15 - 20 //
-	function("%16X\n", xeasy2);
-	function("%32X\n", xeasy3);
-	function("%56X\n", xeasy4);
-	function("%165X\n", xeasy5);
-	function("%X %X\n", xeasy1, 1659);
+	function("%16X\n", dmedium2);
+	function("%32X\n", INT_MIN);
+	function("%56X\n", dmedium4);
+	function("%165X\n", CHAR_MIN);
+	function("%X %X\n", dmedium1, 1659);
 	// 20 - 25 //
-	function("%X %X\n", xeasy2, -1825);
-	function("%X %X\n", xeasy3, -165);
-	function("%X %X\n", xeasy4, 165);
-	function("%X %X\n", xeasy5, 75);
-	function("%10X, %X\n", xeasy1, xeasy2);
+	function("%X %X\n", dmedium2, -1825);
+	function("%X %X\n", CHAR_MAX, -165);
+	function("%X %X\n", dmedium4, 165);
+	function("%X %X\n", dmedium5, 75);
+	function("%10X, %X\n", INT_MAX, dmedium2);
 	// 25 - 30 //
-	function("%12X, %X\n", xeasy2, xeasy3);
-	function("%65X, %X\n", xeasy3, xeasy4);
-	function("%98X, %X\n", xeasy4, xeasy5);
-	function("%1X, %X\n", xeasy5, xeasy5);
-	function("%15X, %X\n", xeasy5, xeasy5); 
+	function("%12X, %X\n", dmedium2, INT_MIN);
+	function("%65X, %X\n", dmedium3, dmedium4);
+	function("%98X, %X\n", INT_MAX, dmedium5);
+	function("%1X, %X\n", dmedium5, dmedium5);
+	function("%15X, %X\n", dmedium5, INT_MAX);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*X\n", 16, dmedium1); //1
+	function("%*XT\n", 0, CHAR_MAX); //2
+	function("%*X\n", 10, dmedium3); //3
+	function("%*X\n", -12, INT_MAX); //4
+	function("%X %*X\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95X\n", dmedium2); 
+	function("%-16X\n", INT_MIN); 
+	function("%-32X\n", dmedium4);
+	function("%32X\n", dmedium5);
+	function("%*X\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%*X Youssef\n", -65,dmedium2);
+	function("%*X a 0123456a\n", -0, INT_MAX);
+	function("%*X Hi !\n", 62,dmedium4);
+	function("aaaaa %*X aaaaaaa\n", 0, INT_MAX);
+	function("%*X 	l'erreur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16X\n", dmedium2);
+	function("%32X\n", INT_MIN);
+	function("%0X\n", dmedium4);
+	function("%16X\n", dmedium5);
+	function("%32X %12X\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*X %*X\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%*X %*X\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0X %*X\n", dmedium1, -20, INT_MAX);
+	function("o%*X %-20X\n", 0, dmedium1, dmedium3);
+	function("!%10X, %*X\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);  
+	function("b%-12X, %-20X:D\n", INT_MAX, dmedium3);
+	function("a%65X, %X:O\n", dmedium3, dmedium4);
+	function("b%98X, %-30XD:\n", dmedium4, CHAR_MIN);
+	function("a%31X, %*X:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __  _   __
  (_) / / (_) / /
@@ -738,7 +737,7 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", xeasy1);
+	function("0\n", xmedium1);
 	// 5 - 10 //
 	function("%%\n");
 	function("%%\n");
@@ -746,67 +745,67 @@ int main()
 	function("%%\n");
 	function("%% Hi i am\n");
 	// 10 - 15 //
-	function("%% Youssef\n", xeasy2);
-	function("%% a 0123456a\n", xeasy3);
-	function("%% Hi !\n", xeasy4);
-	function("aaaaa %% aaaaaaa\n", xeasy5);
-	function("%%\n", xeasy1);
+	function("%% Youssef\n", xmedium2);
+	function("%% a 0123456a\n", xmedium3);
+	function("%% Hi !\n", xmedium4);
+	function("aaaaa %% aaaaaaa\n", xmedium5);
+	function("%%\n", xmedium1);
 	// 15 - 20 //
-	function("%16%\n", xeasy2);
-	function("%32%\n", xeasy3);
-	function("%56%\n", xeasy4);
-	function("%165%\n", xeasy5);
-	function("%% %%\n", xeasy1, 1659);
+	function("%16%\n", xmedium2);
+	function("%32%\n", xmedium3);
+	function("%56%\n", xmedium4);
+	function("%165%\n", xmedium5);
+	function("%% %%\n", xmedium1, 1659);
 	// 20 - 25 //
-	function("%% %%\n", xeasy2, -1825);
-	function("%% %%\n", xeasy3, -165);
-	function("%% %%\n", xeasy4, 165);
-	function("%% %%\n", xeasy5, 75);
-	function("%10%, %%\n", xeasy1, xeasy2);
+	function("%% %%\n", xmedium2, -1825);
+	function("%% %%\n", xmedium3, -165);
+	function("%% %%\n", xmedium4, 165);
+	function("%% %%\n", xmedium5, 75);
+	function("%10%, %%\n", xmedium1, xmedium2);
 	// 25 - 30 //
-	function("%118782%, %245%245\n", xeasy2, xeasy3);
-	function("%64523455%, %452%254\n", xeasy3, xeasy4);
-	function("%98452%, %254%254\n", xeasy4, xeasy5);
-	function("%145245%, 245%254%254\n", xeasy5, xeasy5);
-	function("%14525%254, 254%4524%\n", xeasy5, xeasy5);  
+	function("%118782%, %245%245\n", xmedium2, xmedium3);
+	function("%64523455%, %452%254\n", xmedium3, xmedium4);
+	function("%98452%, %254%254\n", xmedium4, xmedium5);
+	function("%145245%, 245%254%254\n", xmedium5, xmedium5);
+	function("%14525%254, 254%4524%\n", xmedium5, xmedium5);  
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
 	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	function("%*d\n", 16, dmedium1); //1
+	function("%51% %*i %%%%T\n", 0, CHAR_MAX); //2
+	function("%7417% %*d\n", 10, dmedium3); //3
+	function("%*i %11857415%\n", -12, INT_MAX); //4
+	function("%X %%%%%%%%%%%%%%% %*x\n", dmedium2, 12, dmedium4); //5
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%95X %%%%%%\n", dmedium2); 
+	function("%-16p %%\n", INT_MIN); 
+	function("%-32x %848484%\n", dmedium4);
+	function("%171717% %32u\n", dmedium5);
+	function("%*X %171717%\n", 15,dmedium1);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
+	function("%171717% %*d Youssef\n", -65,dmedium2);
+	function("%*i %171717% a 0123456a\n", -0, INT_MAX);
+	function("%171717% %*p  %171717%Hi !\n", 62,dmedium4);
+	function("%171717%aaaaa %*u aaaaaaa\n", 0, INT_MAX);
+	function("%*x 	l'err%171717%eur !\n", -0,dmedium1);
 	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%16X\n", dmedium2);
+	function("%171717% %32u %171717%\n", INT_MIN);
+	function("%171717%%171717%%0d\n", dmedium4);
+	function("%16p%171717%\n", dmedium5);
+	function("%32X %171717%%12x\n", INT_MAX, dmedium4);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("t%*i %171717%%*i\n", -32, INT_MIN, 49, CHAR_MAX);
+	function("o%171717%%*x %*X\n", -0, dmedium5, 20, dmedium2);
+	function("t%-0d%171717% %*u\n", dmedium1, -20, INT_MAX);
+	function("o%*X %171717%%-20X\n", 0, dmedium1, dmedium3);
+	function("!%171717%%10X, %171717%%*x\n", CHAR_MIN, 60, dmedium2);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
+	function("%171717%b%-12x, %-20i:D\n", INT_MAX, dmedium3);
+	function("a%65d, %171717%%X:O\n", dmedium3, dmedium4);
+	function("b%98i, %171717%%-30xD:\n", dmedium4, CHAR_MIN);
+	function("a%31X%171717%, %*i:>\n", INT_MIN, 20, dmedium5);
 /*
   _   __  __  __ _______   __
  (_) / / |  \/  |_   _\ \ / /
@@ -820,87 +819,80 @@ int main()
 	function("961491\n");
 	function("-1518\n");
 	function("+15\n");
-	function("0\n", xeasy1);
+	function("0\n", xmedium1);
 	// 5 - 10 //
-	function("%% %c\n", ceasy1);
-	function("%% %c %s\n", ceasy2, seasy3);
-	function("%% %s\n", seasy2);
-	function("%% %s\n", seasy1);
-	function("%% %d Hi i am\n", deasy1);
+	function("%% %c\n", cmedium1);
+	function("%% %c %s\n", cmedium2, smedium3);
+	function("%% %s\n", smedium2);
+	function("%% %s\n", smedium1);
+	function("%% %d Hi i am\n", dmedium1);
 	// 10 - 15 //
-	function("%d %d%sYoussef\n", deasy2, deasy3);
-	function("%d %d%ca 0123456a\n", deasy3, deasy5, ceasy3);
-	function("%d %c %cHi !\n", deasy4, ceasy4, ceasy5);
-	function("aaaaa %d %s aaaaaaa\n", deasy5, seasy4);
-	function("%15d %s\n", deasy1, seasy5);
+	function("%d %d%sYoussef\n", dmedium2, dmedium3);
+	function("%d %d%ca 0123456a\n", dmedium3, dmedium5, cmedium3);
+	function("%d %c %cHi !\n", dmedium4, cmedium4, cmedium5);
+	function("aaaaa %d %s aaaaaaa\n", dmedium5, smedium4);
+	function("%15d %s\n", dmedium1, smedium5);
 	// 15 - 20 //
-	function("%16% %s %d\n", seasy2, deasy5);
-	function("%32% %5s\n", seasy3);
-	function("%56% %c\n", ceasy4);
-	function("%165% %15d %16s\n", deasy5, seasy2);
-	function("%% %% %dd %c\n", deasy1, 39);
+	function("%16% %s %d\n", smedium2, dmedium5);
+	function("%32% %5s\n", smedium3);
+	function("%56% %c\n", cmedium4);
+	function("%165% %15d %16s\n", dmedium5, smedium2);
+	function("%% %% %dd %c\n", dmedium1, 39);
 	// 20 - 25 //
-	function("%% %% %d\n", xeasy2, -1825);
-	function("%% %5151% %d %161% %65s\n", deasy3, seasy3);
-	function("%% %d%c%s%p\n", deasy4, ceasy5, seasy2, peasy2);
-	function("%% %p%u%x%X\n", peasy5, deasy5, xeasy1, xeasy5);
-	function("%10%, %%\n", xeasy1, xeasy2);
+	function("%% %% %d\n", xmedium2, -1825);
+	function("%% %5151% %d %161% %65s\n", dmedium3, smedium3);
+	function("%% %d%c%s%p\n", dmedium4, cmedium5, smedium2, pmedium2);
+	function("%% %p%u%x%X\n", pmedium5, dmedium5, xmedium1, xmedium5);
+	function("%10%, %%\n", xmedium1, xmedium2);
 	// 25 - 30 //
-	function("%118782% %14d %6p %51s %x, %245%245\n", deasy5, peasy3, seasy4, xeasy5);
-	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", deasy5, peasy3, seasy4, xeasy5, seasy4);
-	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", deasy5, peasy3, seasy4, xeasy5, seasy2);
-	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", deasy5, peasy3, seasy4, xeasy5, seasy2, seasy3);
-	function("zertzert%118782%zert %14d6216 %6p %51s+3156 %16x, %245%245 %u\n", deasy5, peasy3, seasy4, xeasy5, deasy5);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 	/////////////////
 	// MEDIUM PART //
 	/////////////////
-	// 30 - 35 //
-	function("\n"); //1
-	function("T\n"); //2
-	function("o\n"); //3
-	function("4\n"); //4
-	function("2\n"); //5
+	// 31 - 35 //
+	/*
+	*
+	* 					A FAIRE 					A FAIRE 					A FAIRE
+	*
+	*/
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 	// 36 - 40 //
-	function("%c\n", ceasy2); 
-	function("%c\n", ceasy3); 
-	function("%c\n", ceasy4);
-	function("%c\n", ceasy5);
-	function("%c\n", ceasy1);
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 	// 41 - 45 //
-	function("%c Youssef\n", ceasy2);
-	function("%c a 0123456a\n", ceasy3);
-	function("%c Hi !\n", ceasy4);
-	function("aaaaa %c aaaaaaa\n", ceasy5);
-	function("%c 	l'erreur !\n", ceasy1);
-	// 45 - 50 //
-	function("%16c\n", ceasy2);
-	function("%32c\n", ceasy3);
-	function("%56c\n", ceasy4);
-	function("%165c\n", ceasy5);
-	function("%c %c\n", ceasy1, 'u');
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
+	// 46 - 50 //
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 	// 51 - 55 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 	// 56 - 60 //
-	function("b%12c, %c:D\n", ceasy2, ceasy3);
-	function("a%65c, %c:O\n", ceasy3, ceasy4);
-	function("b%98c, %cD:\n", ceasy4, ceasy5);
-	function("a%1c, %c:>\n", ceasy5, ceasy5);
-	// 61 - 65 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
-	// 65 - 70 //
-	function("t%c %c\n", ceasy2, 'a');
-	function("o%c %c\n", ceasy3, '4');
-	function("t%c %c\n", ceasy4, '2');
-	function("o%c %c\n", ceasy5, '!');
-	function("!%10c, %c\n", ceasy1, ceasy2);
+	function("%10%, %%\n", xmedium1, xmedium2);
+	function("%118782% %14d %6p %51s %x, %245%245\n", dmedium5, pmedium3, smedium4, xmedium5);
+	function("%118782% %14d %6p %51s753 %x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium4);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2);
+	function("qqq%118782% qqqq%14d753 %6psdfs %51s%%fsdf %6x, %245%245%s%16s\n", dmedium5, pmedium3, smedium4, xmedium5, smedium2, smedium3);
 }
 
 /*
@@ -938,6 +930,6 @@ ___  ____       _ _
 |																|
 \---------------------------------------------------------------/
 
-# http://patorjk.com/software/taag/#p=display&f=Big&t=%25%20s // Big // 
+# http://patorjk.com/software/taag/#p=displayf=Bigt=%25%20s // Big // 
 
 */
