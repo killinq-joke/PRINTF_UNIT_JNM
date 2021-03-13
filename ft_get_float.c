@@ -14,8 +14,8 @@
 
 char	*ft_get_float(char *flags, va_list args)
 {
-	char *flt;
-	double va_arg;
+	char		*flt;
+	double		va_arg;
 
 	if (ft_strlen(flags) == 0)
 	{
