@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int		ft_get_malloc(char *str, va_list args)
+int	ft_get_malloc(char *str, va_list args)
 {
-	int i;
-	int y;
-	va_list copy;
-	char *itoa;
-	int va_arg;
+	int			i;
+	int			y;
+	va_list		copy;
+	char		*itoa;
+	int			va_arg;
 
 	i = 0;
 	y = 0;
@@ -41,12 +41,12 @@ int		ft_get_malloc(char *str, va_list args)
 
 char	*ft_star_value(char *str, va_list args)
 {
-	char *end;
-	int i;
-	int y;
-	char *itoa;
-	int va_arg;
-	
+	char		*end;
+	int			i;
+	int			y;
+	char		*itoa;
+	int			va_arg;
+
 	y = 0;
 	i = 0;
 	if (!(end = ft_calloc(sizeof(end), ft_get_malloc(str, args) + 1)))
@@ -62,11 +62,11 @@ char	*ft_star_value(char *str, va_list args)
 			free(itoa);
 		}
 		else
-		{ 
+		{
 			end[y] = str[i];
 			y++;
 		}
 		i++;
-	} 
+	}
 	return (end);
 }
