@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int     ft_is_convert(char str) /* Return 1 if char is convert, 0 if not */
+int	ft_is_convert(char str) /* Return 1 if char is convert, 0 if not */
 {
 	if ((str == 'c' || str == 'd' || str == 's' || \
-		str == 'p' || str == 'i' ||\
-		str == 'u' || str == 'x' ||\
-		str == 'X' || str == 'n' ||\
-		str == 'f' || str == 'g' ||\
+		str == 'p' || str == 'i' || \
+		str == 'u' || str == 'x' || \
+		str == 'X' || str == 'n' || \
+		str == 'f' || str == 'g' || \
 		str == 'e' || str == '%') && str != '\0')
 		return (1);
 	return (0);
