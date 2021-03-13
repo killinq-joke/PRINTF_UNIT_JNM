@@ -39,7 +39,7 @@ char    *ft_get_char_flags(char *flags, char *end)
     int a;
     int i;
     int y;
-
+    
     i = 0;
     if (ft_isalnum(flags[0]) == 1 || flags[0] == '-')
     {

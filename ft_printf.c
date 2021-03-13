@@ -140,6 +140,7 @@ int     ft_printf(const char *str, ...)
 {
     int i;
 	int a = 0;
+
     va_list args;
     static char *final = NULL;
 	static 	char	*ptr = NULL;
@@ -166,5 +167,5 @@ int     ft_printf(const char *str, ...)
 	ft_putstr_fd(final, 1);
 	free (final);
 	va_end(args);
-    return (a);
+	return (a);
 }
