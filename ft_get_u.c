@@ -14,8 +14,8 @@
 
 char	*ft_get_u(char *flags, va_list args)
 {
-	char *flt;
-	unsigned long int va_arg;
+	char				*flt;
+	unsigned long int	va_arg;
 
 	(void)flags;
 	va_arg = va_arg(args, unsigned long int);
