@@ -19,7 +19,7 @@ char	*ft_get_n(char *flags, va_list args, int a)
 
 	if (ft_strlen(flags) == 0)
 	{
-		va_arg = va_arg(args, int*);
+		va_arg = va_arg(args, int *);
 		*va_arg = a;
 		flt = ft_calloc(sizeof(flt), 1);
 		flt = ft_index(flt, flags); // TEST FOR FLAGS
