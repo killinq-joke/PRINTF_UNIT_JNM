@@ -38,11 +38,11 @@ rm -rf out/real.out out/fake.out
 rm -rf ft.txt printf.txt diff.txt
 make -C ../libft/
 mkdir output_to_diff
-gcc -Wall -Werror -Wextra -w ./mains/easy_main.c -D function="printf" -o ./out/real.out
+gcc -Wall -Werror -Wextra -w ./mains/medium_main.c -D function="printf" -o ./out/real.out
 ./out/real.out >> output_to_diff/real_results.txt
 make -C ../
 cp ../libftprintf.a ./srcs/
-gcc -Wall -Werror -Wextra -w ./mains/easy_main.c ./srcs/libftprintf.a -D function="ft_printf" -o ./out/fake.out
+gcc -Wall -Werror -Wextra -w ./mains/medium_main.c ./srcs/libftprintf.a -D function="ft_printf" -o ./out/fake.out
 ./out/fake.out >> output_to_diff/fake_results.txt
 rm -rf results/results.log
 
@@ -56,7 +56,7 @@ echo -e "${SPACER_NAME_TOP}\n${SPACER_C}\n${SPACER_NAME_BOT}${NC}"
 echo
 test_numb=1
 note=0
-tonext_spacer=30
+tonext_spacer=60
 sed -n ${test_numb}p output_to_diff/real_results.txt >> printf.txt
 if [ -s output_to_diff/fake_results.txt ] ; then
 while [ -s printf.txt ]
@@ -137,11 +137,11 @@ done
 echo
 let "test_numb -= 1"
 if [ $test_numb -eq $note ] ; then
- 		echo -ne " \033[0;32m $note / $test_numb : On your way to the MEDIUM Test ! \033[0m \n" 
+ 		echo -ne " \033[0;32m $note / $test_numb : On your way to the HARD Test  ! \033[0m \n" 
 
 		echo -e "${SPACER_TOP}\n${SPACER_OK}\n${SPACER_BOT}${NC}\n"
 	else
- 		echo -ne "\033[0;31m $note / $test_numb : Error have been found ! see results.log in results/results.log, if errors comes from MIX only, consider moving to the MEDIUM test ! \033[0m \n"
+ 		echo -ne "\033[0;31m $note / $test_numb : Error have been found ! see results.log in results/results.log, if errors comes from MIX only, consider moving to the HARD test ! \033[0m \n"
 
 		echo -e "${SPACER_TOP}\n${SPACER_KO}\n${SPACER_BOT}${NC}\n"
 	fi
