@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 RED='\e[31m' # RED
 GREEN='\e[32m' # GREEN
 CYAN='\e[36m' # CYAN
@@ -30,19 +31,34 @@ SPACER_G="▌          ${BOLD}${GREEN}▶▶ % G ◀◀${LBLUE}          ${NC}�
 SPACER_N="▌          ${BOLD}${GREEN}▶▶ % N ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_E="▌          ${BOLD}${GREEN}▶▶ % E ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_U="▌          ${BOLD}${GREEN}▶▶ % U ◀◀${LBLUE}          ${NC}▌${NC}"
+SPACER_VALGRIND="▌    ${BOLD}${GREEN}▶▶ V A L G R I N D ◀◀${LBLUE}    ${NC}▌${NC}"
 SPACER_PERCENT="▌          ${BOLD}${GREEN}▶▶ % % ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_MIX="▌          ${BOLD}${GREEN}▶▶ MIX ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_NAME_BOT="${DGREY}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${NC}"
+NO="n"
+source ./config/user_settings.txt
+can_start=${has_been_run}
+if [ "${can_start}" == "${NO}" ]; then
+	echo
+	echo "Please run the command bash config.sh before running this command to setup your compilation settings."
+	echo
+	exit
+fi
+
+source ./config/user_settings.txt
+gcc_flags=${flags}
+gcc_valgrind=${valgrind_full}
+
 rm -rf output_to_diff/fake_results.txt output_to_diff/real_results.txt output_to_diff
 rm -rf out/real.out out/fake.out
 rm -rf ft.txt printf.txt diff.txt
 make -C ../libft/
 mkdir output_to_diff
-gcc -Wall -Werror -Wextra -w ./mains/easy_main.c -D function="printf" -o ./out/real.out
+gcc ${flags} ./mains/easy_main.c -D function="printf"  -o ./out/real.out
 ./out/real.out >> output_to_diff/real_results.txt
 make -C ../
 cp ../libftprintf.a ./srcs/
-gcc -Wall -Werror -Wextra -w ./mains/easy_main.c ./srcs/libftprintf.a -D function="ft_printf" -o ./out/fake.out
+gcc ${flags} ./mains/easy_main.c ./srcs/libftprintf.a -D function="ft_printf"  -o ./out/fake.out
 ./out/fake.out >> output_to_diff/fake_results.txt
 rm -rf results/results.log
 
@@ -50,7 +66,11 @@ clear
 
 echo -e "${SPACER_TOP}\n${SPACER_HEAD}\n${SPACER_START_EASY}\n${SPACER_HEAD}\n${SPACER_BOT}${NC}"
 
-echo
+echo 
+
+echo -e "${SPACER_NAME_TOP}\n${SPACER_VALGRIND}\n${SPACER_NAME_BOT}${NC}"
+
+${gcc_valgrind} ./out/fake.out &>/dev/null
 
 echo -e "${SPACER_NAME_TOP}\n${SPACER_C}\n${SPACER_NAME_BOT}${NC}"
 echo
@@ -164,3 +184,36 @@ rm -rf srcs/libftprintf.a
 
 #https://misc.flogisoft.com/bash/tip_colors_and_formatting
 #https://en.wikipedia.org/wiki/Box-drawing_character
+
+#For any question, contact NotJustJoe#3756 on Discord or see GitHubs Links below ↓
+#╔═════════════════════════════════════════════════════════════════════════╗
+#║                    _____          __ _     _       _                    ║  
+#║                   |_   _|        / _(_)   | |     | |                   ║
+#║                     | |_ __ ___ | |_ _  __| | __ _| |                   ║
+#║                     | | '__/ _ \|  _| |/ _` |/ _` | |                   ║
+#║                     | | | | (_) | | | | (_| | (_| | |                   ║
+#║                     \_/_|  \___/|_| |_|\__,_|\__,_|_|                   ║
+#║                                                                         ║
+#║                   __   __                                               ║
+#║                   \ \ / /                                               ║
+#║                    \ V /___  _   _ ___ ___  ___  _   _                  ║
+#║                     \ // _ \| | | / __/ __|/ _ \| | | |                 ║
+#║                     | | (_) | |_| \__ \__ \ (_) | |_| |                 ║
+#║                     \_/\___/ \__,_|___/___/\___/ \__,_|                 ║
+#║                                                                         ║
+#║                     ____  _           _ _                               ║
+#║                    / __ \| |         | | |                              ║
+#║                   | |  | | |__   __ _| | |_ __ _                        ║
+#║                   | |  | | '_ \ / _` | | __/ _` |                       ║
+#║                   | |__| | |_) | (_| | | || (_| |                       ║
+#║                    \____/|_.__/ \__,_|_|\__\__,_|                       ║
+#║                                                                         ║
+#║                                                                         ║
+#╠═════════════════════════════════════════════════════════════════════════╣
+#║                     - 42 Nice - France 12/03/2021 -                     ║ 
+#║ 																           ║ 
+#║         NotJustJoe // trofidal // https://github.com/NotJustJoe         ║ 
+#║         junior-one // youssou  // https://github.com/junior-one         ║ 
+#║         minikross  // obalta   // https://github.com/minikross          ║ 
+#║ 																           ║ 
+#╚═════════════════════════════════════════════════════════════════════════╝
