@@ -12,7 +12,7 @@ BOLD='\e[1m'
 ENDBLINK='\e[25'
 NC='\e[97m' # No Color
 SPACER_TOP="${DGREY}▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜${NC}"
-SPACER_START_EASY="${DGREY}▌                    ${YELW}${BOLD}${UL}▶▶ F T _ P R I N T F ◀◀${EUL}${LBLUE}                                  ${YELW}${BOLD}${UL}▶▶ E A S Y ◀◀${EUL}${DGREY}                    ▌${NC}"
+SPACER_START_EASY="${DGREY}▌                    ${YELW}${BOLD}${UL}▶▶ F T _ P R I N T F ◀◀${EUL}${LBLUE}                              ${YELW}${BOLD}${UL}▶▶ M E D I U M ◀◀${EUL}${DGREY}                    ▌${NC}"
 SPACER_HEAD="${DGREY}▌                                                                                                              ▌${NC}"								
 SPACER_BOT="${DGREY}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${NC}"				
 SPACER_KO="${DGREY}▌                                                   ${BOLD}${RED}▶▶ K O ◀◀${LBLUE}                                                 ${DGREY} ▌${NC}"
@@ -30,9 +30,24 @@ SPACER_G="▌          ${BOLD}${GREEN}▶▶ % G ◀◀${LBLUE}          ${NC}�
 SPACER_N="▌          ${BOLD}${GREEN}▶▶ % N ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_E="▌          ${BOLD}${GREEN}▶▶ % E ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_U="▌          ${BOLD}${GREEN}▶▶ % U ◀◀${LBLUE}          ${NC}▌${NC}"
+SPACER_VALGRIND="▌    ${BOLD}${GREEN}▶▶ V A L G R I N D ◀◀${LBLUE}    ${NC}▌${NC}"
+SPACER_VALGRIND_KO="▌    ${BOLD}${RED}▶▶ V A L G R I N D ◀◀${LBLUE}    ${NC}▌${NC}"
 SPACER_PERCENT="▌          ${BOLD}${GREEN}▶▶ % % ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_MIX="▌          ${BOLD}${GREEN}▶▶ MIX ◀◀${LBLUE}          ${NC}▌${NC}"
 SPACER_NAME_BOT="${DGREY}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${NC}"
+NO="n"
+source ./config/user_settings.txt
+can_start=${has_been_run}
+if [ "${can_start}" == "${NO}" ]; then
+	echo
+	echo "Please run the command bash config.sh before running this command to setup your compilation settings."
+	echo
+	exit
+fi
+source ./config/user_settings.txt
+gcc_flags=${flags}
+gcc_valgrind=${valgrind_full}
+rm -rf ../*.o
 rm -rf output_to_diff/fake_results.txt output_to_diff/real_results.txt output_to_diff
 rm -rf out/real.out out/fake.out
 rm -rf ft.txt printf.txt diff.txt
@@ -44,13 +59,27 @@ make -C ../
 cp ../libftprintf.a ./srcs/
 gcc -Wall -Werror -Wextra -w ./mains/medium_main.c ./srcs/libftprintf.a -D function="ft_printf" -o ./out/fake.out
 ./out/fake.out >> output_to_diff/fake_results.txt
-rm -rf results/results.log
+rm -rf results/results.log results/valgrind.log
+${gcc_valgrind} --log-fd=9 9>> ./results/valgrind.log ./out/fake.out
+VALGRIND_VALUE=`wc -l ./results/valgrind.log | cut -f1 -d' '`
 
 clear
 
 echo -e "${SPACER_TOP}\n${SPACER_HEAD}\n${SPACER_START_EASY}\n${SPACER_HEAD}\n${SPACER_BOT}${NC}"
 
 echo
+
+if [ "${VALGRIND_VALUE}" -lt "15" ]; then
+	echo -e "${SPACER_NAME_TOP}\n${SPACER_VALGRIND}\n${SPACER_NAME_BOT}${NC}"
+	echo
+	echo -e "${BOLD}${GREEN}Memory OK ! A Valgrind log file is available in the results folder.${NC}"
+else
+	echo -e "${SPACER_NAME_TOP}\n${SPACER_VALGRIND_KO}\n${SPACER_NAME_BOT}${NC}"
+	echo
+	echo -e "${BOLD}${RED}Memory ERROR ! Check the valgrind.log in the results folder${NC}"
+fi
+
+echo 
 
 echo -e "${SPACER_NAME_TOP}\n${SPACER_C}\n${SPACER_NAME_BOT}${NC}"
 echo
@@ -145,6 +174,15 @@ if [ $test_numb -eq $note ] ; then
 
 		echo -e "${SPACER_TOP}\n${SPACER_KO}\n${SPACER_BOT}${NC}\n"
 	fi
+	if [ "${VALGRIND_VALUE}" -lt "15" ]; then
+		echo -e "${SPACER_NAME_TOP}\n${SPACER_VALGRIND}\n${SPACER_NAME_BOT}${NC}"
+		echo
+		echo -e "${BOLD}${GREEN}Memory OK ! A Valgrind log file is available in the results folder.${NC}"
+	else
+		echo -e "${SPACER_NAME_TOP}\n${SPACER_VALGRIND_KO}\n${SPACER_NAME_BOT}${NC}"
+		echo
+		echo -e "${BOLD}${RED}Memory ERROR ! Check the valgrind.log in the results folder${NC}"
+	fi
 echo
 
 else
@@ -156,7 +194,12 @@ fi
 echo
 
 make -C srcs/ fclean &> /dev/null
-cp diff.txt results/results.log
+if [ -f "diff.txt" ]; then
+	cp diff.txt results/results.log
+fi
+if [ -f "a.out" ]; then
+	rm -rf a.out
+fi
 rm -rf ft.txt printf.txt diff.txt
 rm -rf out/fake.out out/real.out output_to_diff/fake_results.txt output_to_diff/real_results.txt
 rm -rf ../*.o ../libftprintf.a

@@ -1,60 +1,45 @@
 # PRINTF_UNIT_JNM
-Tester for ft_printf for school 42 project // junior-one // NotJustJoe // minikross //
 
+This is a UNIT Tester for the function ft_print of 42's School project, the features are :
 
-Project
+-Several Level of stress testing for your function.
 
-												---***---
+-Logs of the error, with the number of the test you've failed.
 
-bash easy # run sans valgrind # fonctions simple, tests basiques # sed les fonctions interdites (strcyp, strcat etc) #
+-Valgrind Log for each test without interrupting/interfering with the test even if you have memory leaks.
 
-bash medium # run sans valgrind # fonctions plus compliquées # sed les fonctions interdites (strcyp, strcat etc) # Returned Value are checked #
+-A user_settings file to custom at your will how you wanna compile your program.
 
-bash hard # run avec valgrind # fonctions complexes # sed les fonctions interdites (strcyp, strcat etc) #
+---------------------
+How to run the test :
+---------------------
+1- Go inside your ft_printf function.
 
-												---***---
+2- git clone https://github.com/NotJustJoe/PRINTF_UNIT_JNM.git
 
-Si il y a une erreur print dans le diff sous cette forme :
-===========================================================================================================\
-=================================================== K O ===================================================|
-===========================================================================================================/
-TEST NUMBER 	: 	"78/100	"	
-TYPE OF TEST	:	"%s		"
-HAS	LEAKS		:	"NO		"						
-TEST			:	"("%s", "hi i am a string")"
-===========================================================================================================|
-REAL PRINTF		 	:	|hi i am a string|
-FT_PRINTF			:	|hi i am a stri**|
-// * = error // FT_PRINTF = your result // REAL PRINTF = printf result //
-===========================================================================================================/
+3- cd PRINTF_UNIT_JNM
 
-If ok == Returns Nothing :
+4- See the commands below to run the test according to your preferences
+---------------------
+Differents test :
+---------------------
+EASY : Basically test out your ft_printf function with REALLY BASICS tests.
+./easy.sh
 
-in the Shell :
----------------------------/
-/>$bash easy.sh
-Test Started for easy difficulty, valgrind is off
-===========================================================================================================\
-=================== F T _ P R I N T F ================================ E A S Y ============================|
-===========================================================================================================/
+MEDIUM : Advanced test for your function, making use of INT_MAX, INT_MIN, Flags etc...
+./medium.sh
 
-========================\
-====	Type : %s	====|
-========================/
+HARD : The Last Test, using STRONG Test made to push your function to its limit
+not done yet
 
-=========|=========|=========|=========|=========|=========|=========|=========|=========|=========|
- 1  : OK | 2 : OK  | 3 : OK  | 4 : OK  | 5 : OK  | 6 : OK  | 7 : OK  | 8 : OK  | 9 : OK  | 10 : OK |
- 11 : OK | 12 : OK | 13 : OK | 14 : OK | 15 : OK | 16 : OK | 17 : OK | 18 : OK | 19 : OK | 20 : OK |
- 21 : OK | 22 : OK | 23 : OK | 24 : OK | 25 : OK | 26 : OK | 27 : OK | 28 : OK | 29 : OK | 30 : OK |
-=========|=========|=========|=========|=========|=========|=========|=========|=========|=========|
-Grade for %s : 100 / 100
+BONUS : Testing Bonus function with lots of differents test, ranging from easy to hard but with the bonus stuff !
+not done yet
 
-========================\
-====	Type : %d	====|
-========================/
+ALL : Hard and Bonus at the same time.
+not done yet
 
-=========|=========|=========|=========|=========|=========|=========|=========|=========|=========|
- 1 : OK  | 2 : OK  | 3 : OK  | 4 : OK  | 5 : OK  | 6 : OK  | 7 : OK  | 8 : OK  | 9 : OK  | 10 : OK |
- 11 : OK | 12 : OK | 13 : OK | 14 : OK | 15 : OK | 16 : OK | 17 : OK | 18 : OK | 19 : OK | 20 : OK |
- 21 : OK | 22 : OK | 23 : OK | 24 : OK | 25 : OK | 26 : OK | 27 : OK | 28 : OK | 29 : OK | 30 : OK |
-=========|=========|=========|=========|=========|=========|=========|=========|=========|=========|
+This test is still in development and if you wish to contribute, any help is welcomed.
+
+NotJustJoe#3756 on Discord
+
+42 Nice // 14/03/2021 // France //

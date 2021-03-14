@@ -1,9 +1,9 @@
 #!/bin/bash
 
 YES="y"
-VALG="n"
+VALG="y"
 FLAGs="y"
-LEAKS="n"
+LEAKS="y"
 
 read -p "Enable Valgrind ? [y/n]`echo $'\n> '`" VALG
 read -p "Enable -Wall -Wextra -Werror ? [y/n]`echo $'\n> '`" FLAGS
