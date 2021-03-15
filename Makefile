@@ -6,7 +6,7 @@
 #    By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 13:04:24 by trofidal          #+#    #+#              #
-#    Updated: 2021/03/12 10:21:27 by trofidal         ###   ########.fr        #
+#    Updated: 2021/03/15 12:15:29 by ztouzri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,8 @@ $(NAME): $(OBJ)
 				cp libft/libft.a $(NAME)
 				ar -rcs $(NAME) $(OBJ)  
 
-%.o: %.c
-				$(CC) -I. -o $@ -c $? $(CFLAGS)
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
