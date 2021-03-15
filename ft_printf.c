@@ -6,7 +6,7 @@
 /*   By: trofidal <trofidal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 08:20:39 by trofidal          #+#    #+#             */
-/*   Updated: 2021/03/11 07:00:00 by trofidal         ###   ########.fr       */
+/*   Updated: 2021/03/15 08:29:06 by trofidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,21 +105,28 @@ void	ft_free_main(char *temp, char *convert, char *flags, char *content)
 }
 
 
-char	*ft_percent_management(va_list args, char *str, char *final, int *i)
+char	*ft_percent_management(va_list args, char *str, char *final, int *i, int *y)
 {
 	int				a;
+	int				va_arg;
+	va_list			copy;
 	static char		*flags;
 	static char		*convert;
 	static char		*content;
-
+	
+	va_copy(copy, args);
+	va_arg = va_arg(copy, int);
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
 	final = ft_strjoin(final, content);
+	if (ft_strchr(convert, 'c') != NULL && (va_arg == 0 ||\
+	(ft_isprint(va_arg) == 0 && ft_strlen(content) == 0)))
+		*y += 1;
 	free(convert);
 	free(flags);
-	fre(content);
+	free(content);
 	return (final);
 }
 
@@ -138,6 +145,7 @@ int     ft_printf(const char *str, ...)
 {
 	int				i;
 	int				a;
+	int				y;
 	va_list			args;
 	static char		*final = NULL;
 	static char		*ptr = NULL;
@@ -145,6 +153,7 @@ int     ft_printf(const char *str, ...)
 
 	a = 0;
 	i = 0;
+	y = 0;
 	p = NULL;
 	va_start(args, str);
 	if (!(final = (char *)ft_calloc(sizeof(final), 1)))
@@ -152,7 +161,7 @@ int     ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			ptr = ft_percent_management(args, (char *)str + i, final, &i);
+			ptr = ft_percent_management(args, (char *)str + i, final, &i, &y);
 		else
 			ptr = ft_else_management(str[i], final, &i);
 		p = (char *)ft_calloc(sizeof(p), ft_strlen(ptr) + 1);
@@ -163,7 +172,7 @@ int     ft_printf(const char *str, ...)
 		free(p);
 		free(ptr);
 	}
-	a = ft_strlen(final);
+	a = ft_strlen(final) + y;
 	ft_putstr_fd(final, 1);
 	free (final);
 	va_end(args);
