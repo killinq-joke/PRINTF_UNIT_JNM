@@ -114,22 +114,30 @@ char	*ft_percent_management(va_list args, char *str, char *final, int *i, int *y
 	static char		*convert;
 	static char		*content;
 	
-	va_copy(copy, args);
-	va_arg = va_arg(copy, int);
+	
 	a = ft_strlen(final);
 	flags = ft_get_flags((char *)str, flags, args, &i);
+	va_copy(copy, args);
+	va_arg = va_arg(copy, int);
 	convert = ft_get_convert((char *)str, convert);
 	content = ft_get_content(flags, convert, args, a);
 	final = ft_strjoin(final, content);
 	if (ft_strchr(convert, 'c') != NULL && (va_arg == 0 ||\
 	(ft_isprint(va_arg) == 0 && ft_strlen(content) == 0)))
+	{
 		*y += 1;
+		
+		ft_putchar(va_arg); 
+		ft_putstr_fd(content, 1);
+	}	
+	else
+		ft_putstr_fd(content, 1);
 	free(convert);
 	free(flags);
 	free(content);
 	return (final);
 }
-
+ 
 char		*ft_else_management(char c, char *final, int *i)
 {
 	char		save_char[2];
@@ -138,6 +146,7 @@ char		*ft_else_management(char c, char *final, int *i)
 	save_char[1] = '\0';
 	final = ft_strjoin(final, save_char);
 	*i += 1;
+	ft_putchar(c);
 	return (final);
 }
 
@@ -173,8 +182,9 @@ int     ft_printf(const char *str, ...)
 		free(ptr);
 	}
 	a = ft_strlen(final) + y;
-	ft_putstr_fd(final, 1);
+	//ft_putstr_fd(final, 1);
 	free (final);
 	va_end(args);
 	return (a);
 }
+ 
